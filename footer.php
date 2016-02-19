@@ -15,6 +15,13 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="wrap">
+
+			<?php if ( is_active_sidebar( 'sidebar-2' ) ) { ?>
+				<aside id="footer-widgets" class="widget-area" role="complementary">
+					<?php dynamic_sidebar( 'sidebar-2' ); ?>
+				</aside><!-- #secondary -->
+			<?php } ?>
+
 			<div class="site-info">
 				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'scratchpad' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'scratchpad' ), 'WordPress' ); ?></a>
 				<span class="sep"> | </span>
