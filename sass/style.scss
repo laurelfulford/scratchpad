@@ -883,14 +883,35 @@ a:active {
 	position: relative;
 
 	.entry-header {
-		h2 {
-			margin-bottom: 0;
-		}
-
 		a {
 			text-decoration: none;
-
 		}
+
+		h2 {
+			font-size: 35px;
+			line-height: 1.4;
+			margin-bottom: 0;
+
+			a {
+				color: #666;
+			}
+		}
+
+		.entry-meta {
+			color: #b9b9b9;
+			font-size: 18px;
+
+			a {
+				color: #b9b9b9;
+			}
+		}
+	}
+
+	.more-link {
+		color: #b9b9b9;
+		font-family: $font_handwritten;
+		font-size: 18px;
+		text-decoration: none;
 	}
 }
 
@@ -938,8 +959,17 @@ a:active {
 	}
 
 	.featured-image {
-		padding: 10px 10px 30px;
+		padding: 12px 12px 30px;
 		position: relative;
+
+		.paperclip {
+			position: absolute;
+			right: 70px;
+			top: -34px;
+			-webkit-transform: rotate(-10deg);
+			-ms-transform: rotate(-10deg);
+			transform: rotate(-10deg);
+		}
 	}
 
 	.entry-header {
@@ -992,15 +1022,30 @@ a:active {
 		padding: 0 50px;
 		text-align: center;
 		text-transform: uppercase;
+
+		h2 {
+			font-size: 25px;
+
+			a {
+				color: #fff;
+			}
+		}
 	}
 
 	.entry-content {
+		color: rgba( #fff, 0.7 );
 		padding: 0 50px;
 	}
 
 	.entry-footer {
+		color: rgba( #fff, 0.4 );
 		padding: 0 50px;
 		text-align: center;
+
+		.entry-meta,
+		a {
+			color: rgba( #fff, 0.4 );
+		}
 	}
 
 }
@@ -1573,6 +1618,13 @@ object {
 	fill:#BDCBCC;
 }
 
+/* Post Mark */
+
+.post-mark0 {
+	fill: #302D20;
+	opacity: 0.6;
+}
+
 /* Pencil Sharpener */
 
 .sharpener0 {
@@ -1589,4 +1641,15 @@ object {
 
 .sharpener3 {
 	fill:#FFFFFF;
+}
+
+/* Paperclip */
+
+.paperclip {
+	height: 120px;
+	width: 36px;
+}
+
+.paperclip0 {
+	fill: #a2a2a2;
 }

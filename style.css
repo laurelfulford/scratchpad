@@ -730,13 +730,35 @@ a:active {
 .search .hentry {
   margin: 0 auto 50px;
   position: relative; }
-  .blog .hentry .entry-header h2,
-  .archive .hentry .entry-header h2,
-  .search .hentry .entry-header h2 {
-    margin-bottom: 0; }
   .blog .hentry .entry-header a,
   .archive .hentry .entry-header a,
   .search .hentry .entry-header a {
+    text-decoration: none; }
+  .blog .hentry .entry-header h2,
+  .archive .hentry .entry-header h2,
+  .search .hentry .entry-header h2 {
+    font-size: 35px;
+    line-height: 1.4;
+    margin-bottom: 0; }
+    .blog .hentry .entry-header h2 a,
+    .archive .hentry .entry-header h2 a,
+    .search .hentry .entry-header h2 a {
+      color: #666; }
+  .blog .hentry .entry-header .entry-meta,
+  .archive .hentry .entry-header .entry-meta,
+  .search .hentry .entry-header .entry-meta {
+    color: #b9b9b9;
+    font-size: 18px; }
+    .blog .hentry .entry-header .entry-meta a,
+    .archive .hentry .entry-header .entry-meta a,
+    .search .hentry .entry-header .entry-meta a {
+      color: #b9b9b9; }
+  .blog .hentry .more-link,
+  .archive .hentry .more-link,
+  .search .hentry .more-link {
+    color: #b9b9b9;
+    font-family: "Kalam", "Chalkboard", "Comic Sans", script;
+    font-size: 18px;
     text-decoration: none; }
 
 .blog .format-standard,
@@ -785,8 +807,17 @@ a:active {
   .blog .format-standard .featured-image,
   .archive .format-standard .featured-image,
   .search .format-standard .featured-image {
-    padding: 10px 10px 30px;
+    padding: 12px 12px 30px;
     position: relative; }
+    .blog .format-standard .featured-image .paperclip,
+    .archive .format-standard .featured-image .paperclip,
+    .search .format-standard .featured-image .paperclip {
+      position: absolute;
+      right: 70px;
+      top: -34px;
+      -webkit-transform: rotate(-10deg);
+      -ms-transform: rotate(-10deg);
+      transform: rotate(-10deg); }
   .blog .format-standard .entry-header,
   .archive .format-standard .entry-header,
   .search .format-standard .entry-header {
@@ -831,11 +862,20 @@ a:active {
     padding: 0 50px;
     text-align: center;
     text-transform: uppercase; }
+    .blog .format-aside .entry-header h2 {
+      font-size: 25px; }
+      .blog .format-aside .entry-header h2 a {
+        color: #fff; }
   .blog .format-aside .entry-content {
+    color: rgba(255, 255, 255, 0.7);
     padding: 0 50px; }
   .blog .format-aside .entry-footer {
+    color: rgba(255, 255, 255, 0.4);
     padding: 0 50px;
     text-align: center; }
+    .blog .format-aside .entry-footer .entry-meta,
+    .blog .format-aside .entry-footer a {
+      color: rgba(255, 255, 255, 0.4); }
 
 /*--------------------------------------------------------------
 ## Audio
@@ -1250,6 +1290,11 @@ object {
 .stamp2 {
   fill: #BDCBCC; }
 
+/* Post Mark */
+.post-mark0 {
+  fill: #302D20;
+  opacity: 0.6; }
+
 /* Pencil Sharpener */
 .sharpener0 {
   fill: #939393; }
@@ -1262,5 +1307,13 @@ object {
 
 .sharpener3 {
   fill: #FFFFFF; }
+
+/* Paperclip */
+.paperclip {
+  height: 120px;
+  width: 36px; }
+
+.paperclip0 {
+  fill: #a2a2a2; }
 
 /*# sourceMappingURL=style.css.map */
