@@ -34,24 +34,41 @@ function scratchpad_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline;  // WPCS: XSS OK.
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Edit %s', 'scratchpad' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		'<span class="edit-link"><span class="sep">&bull;</span>',
+		'</span>'
+	);
+	echo '</span>';
 
+}
+endif;
+
+if ( ! function_exists( 'scratchpad_categories' ) ) :
+/**
+ * Prints HTML for categories
+ */
+function scratchpad_categories() {
+	/* translators: used between list items, there is a space after the comma */
+	$categories_list = get_the_category_list( esc_html__( ', ', 'scratchpad' ) );
+	if ( $categories_list && scratchpad_categorized_blog() ) {
+		echo '<span class="cat-links"><span class="screen-reader-text">' . esc_html__( 'Posted in', 'scratchpad' ) . '</span> ' . $categories_list . '</span>'; // WPCS: XSS OK.
+	}
 }
 endif;
 
 if ( ! function_exists( 'scratchpad_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags and comments.
+ * Prints HTML with meta information for the tags and comments.
  */
 function scratchpad_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'scratchpad' ) );
-		if ( $categories_list && scratchpad_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'scratchpad' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'scratchpad' ) );
 		if ( $tags_list ) {
@@ -64,16 +81,6 @@ function scratchpad_entry_footer() {
 		comments_popup_link( esc_html__( 'Leave a comment', 'scratchpad' ), esc_html__( '1 Comment', 'scratchpad' ), esc_html__( '% Comments', 'scratchpad' ) );
 		echo '</span>';
 	}
-
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'scratchpad' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
 }
 endif;
 
