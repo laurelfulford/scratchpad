@@ -44,17 +44,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Variables
---------------------------------------------------------------*/
-
-$font_sans: "Lato", "Helvetica Neue", helvetica, arial, sans-serif;
-$font-handwritten: "Kalam", "Chalkboard", "Comic Sans", script;
-
-$color_background: #bdcbcc;
-$color_teal: #537375;
-$color_yellow: #efe8be;
-$color_orange: #d16221;
+@import "variables";
 
 /*--------------------------------------------------------------
 # Normalize
@@ -429,6 +419,10 @@ img {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+}
+
+.sep {
+	margin: 0 10px;
 }
 
 /*--------------------------------------------------------------
@@ -847,6 +841,16 @@ a:active {
 	}
 }
 
+.cat-links {
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	a {
+		color: $color_orange;
+	}
+}
+
 .byline,
 .updated:not(.published) {
 	display: none;
@@ -885,6 +889,7 @@ a:active {
 
 		a {
 			text-decoration: none;
+
 		}
 	}
 }
@@ -895,7 +900,11 @@ a:active {
 	background-color: rgba(255,255,255,0.95);
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 	max-width: 800px;
-	padding: 50px 85px;
+	padding: 50px 0;
+
+	&.has-post-thumbnail {
+		padding-top: 0;
+	}
 
 	&:nth-of-type(even) {
 		max-width: 840px;
@@ -929,11 +938,21 @@ a:active {
 	}
 
 	.featured-image {
+		padding: 10px 10px 30px;
 		position: relative;
 	}
 
 	.entry-header {
+		padding: 0 85px;
 		text-align: center;
+	}
+
+	.entry-content {
+		padding: 0 85px;
+	}
+
+	.entry-footer {
+		padding: 0 85px;
 	}
 }
 
@@ -946,7 +965,7 @@ a:active {
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 	color: #fff;
 	max-width: 615px;
-	padding: 50px;
+	padding: 50px 0;
 
 	&:before {
 		background-color: rgba(255,255,255,0.1);
@@ -970,8 +989,18 @@ a:active {
 
 	.entry-header {
 		letter-spacing: 0.1em;
+		padding: 0 50px;
 		text-align: center;
 		text-transform: uppercase;
+	}
+
+	.entry-content {
+		padding: 0 50px;
+	}
+
+	.entry-footer {
+		padding: 0 50px;
+		text-align: center;
 	}
 
 }
@@ -1085,14 +1114,24 @@ a:active {
 	background-color: #fff;
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 	max-width: 615px;
-	padding: 50px;
+	padding: 50px 0;
+
+	.entry-header {
+		padding: 0 60px;
+		text-align: center;
+	}
 
 	.entry-title {
 		font-family: $font_handwritten;
+		padding: 0 60px;
 	}
 
-	.entry-meta {
-		text-align: center;
+	.entry-content {
+		padding: 0 60px;
+	}
+
+	.entry-footer {
+		padding: 0 60px;
 	}
 }
 
@@ -1104,14 +1143,23 @@ a:active {
 	background-color: $color_yellow;
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 	max-width: 700px;
-	padding: 60px;
+	padding: 60px 0;
+
+	.entry-header {
+		padding: 0 60px;
+		text-align: center;
+	}
 
 	.entry-title {
 		font-family: $font_handwritten;
 	}
 
-	.entry-meta {
-		text-align: center;
+	.entry-content {
+		padding: 0 60px
+	}
+
+	.entry-footer {
+		padding: 0 60px;
 	}
 }
 
@@ -1123,28 +1171,121 @@ a:active {
 	background-color: lighten( $color_yellow, 10% );
 	font-family: $font_handwritten;
 	max-width: 450px;
-	padding: 50px;
+	padding: 50px 0;
 	text-align: center;
 
-	.entry-title {
+	.entry-header {
 		display: none;
+	}
+
+	.entry-content {
+		padding: 0 50px;
 	}
 
 	.entry-meta {
 		text-align: center;
 	}
+
+	.entry-footer {
+		padding: 0 50px;
+	}
+}
+
+/*--------------------------------------------------------------
+## Single Posts
+--------------------------------------------------------------*/
+
+.single #primary {
+	float: left;
+	max-width: 800px;
+
+	article {
+		background-color: rgba(255,255,255,0.95);
+		box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+		max-width: 800px;
+		padding-bottom: 40px;
+
+		.featured-image {
+			padding: 10px 10px 0;
+		}
+
+		.entry-header {
+			padding: 50px 85px 0;
+			text-align: center;
+		}
+
+		.entry-content {
+			padding: 0 85px 50px;
+		}
+
+		.entry-footer {
+			padding: 0 85px;
+		}
+	}
+
+	.author-info {
+		background-color: lighten( $color_teal, 50% );
+		padding: 40px 85px;
+	}
+
+	.author-avatar {
+		border-radius: 50px;
+		float: left;
+		height: 85px;
+		overflow: hidden;
+		width: 85px;
+	}
+
+	.author-description {
+		float: right;
+		width: calc(100% - 105px);
+
+		h2 {
+			font-size: 18px;
+		}
+	}
+}
+
+.single.no-sidebar #primary {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+
+#comments {
+	background-color: #fff;
+	padding: 85px;
+
+	ol.comment-list,
+	ol.comment-list > li,
+	ol.children,
+	ol.children > li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }
 
 .bypostauthor {
 	display: block;
+}
+
+#comments-form {
+	background-color: lighten( $color_yellow, 10% );
+	padding: 40px 85px;
+}
+
+#comments + #comments-form {
+	margin-top: 50px;
 }
 
 /*--------------------------------------------------------------
@@ -1257,7 +1398,18 @@ object {
 --------------------------------------------------------------*/
 
 #colophon {
+	color: lighten( $color_teal, 5% );
+	font-size: 14px;
 	text-align: center;
+
+	a {
+		color: lighten( $color_teal, 5% );
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1359,4 +1511,82 @@ object {
 	stroke-linecap: round;
 	stroke-miterlimit: 10;
 	stroke-dasharray: 0.9775,4.8876,0.9775,4.8876,0.9775,4.8876;
+}
+
+/* Little Pencil */
+.pencil-little0 {
+	fill: #EDCFCF;
+}
+
+.pencil-little1 {
+	fill: #EAEAEA;
+}
+
+.pencil-little2 {
+	fill: #DDB612;
+}
+
+.pencil-little3 {
+	opacity:0.5;
+	fill: #FFFFFF;
+}
+
+.pencil-little4 {
+	opacity: 0.2;
+	fill: #5B5950;
+}
+
+.pencil-little5 {
+	fill: lighten( $color_yellow, 10% );
+}
+
+.pencil-little6 {
+	fill: #4F4F4F;
+}
+
+/* Pencil Shaving */
+
+.shaving0 {
+	fill: lighten( $color_yellow, 10% );
+}
+
+.shaving1 {
+	fill:#DDB612;
+}
+
+.shaving2 {
+	fill:#4F4F4F;
+}
+
+/* Stamp */
+
+.stamp0 {
+	fill: #ffffff;
+}
+
+.stamp1 {
+	opacity:0.7;
+	fill:#527375;
+}
+
+.stamp2 {
+	fill:#BDCBCC;
+}
+
+/* Pencil Sharpener */
+
+.sharpener0 {
+	fill: #939393;
+}
+
+.sharpener1 {
+	fill:#565656;
+}
+
+.sharpener2 {
+	fill:#C1C1C1;
+}
+
+.sharpener3 {
+	fill:#FFFFFF;
 }

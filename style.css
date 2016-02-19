@@ -1,10 +1,10 @@
 /*
 Theme Name: Scratchpad
-Theme URI: https://wordpress.com/themes/scatchpad/
+Theme URI: http://underscores.me/
 Author: Automattic
-Author URI: https://wordpress.com/themes/
+Author URI: http://themes.wordpress.com/scratchpad
 Description: A sketchy theme.
-Version: 0.1
+Version: 0.8
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: scratchpad
@@ -41,9 +41,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 	## Captions
 	## Galleries
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Variables
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -358,6 +355,9 @@ img {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+.sep {
+  margin: 0 10px; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -697,6 +697,14 @@ a:active {
   .entry-meta a {
     color: #666; }
 
+.cat-links {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.07em;
+  text-transform: uppercase; }
+  .cat-links a {
+    color: #d16221; }
+
 .byline,
 .updated:not(.published) {
   display: none; }
@@ -737,7 +745,11 @@ a:active {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   max-width: 800px;
-  padding: 50px 85px; }
+  padding: 50px 0; }
+  .blog .format-standard.has-post-thumbnail,
+  .archive .format-standard.has-post-thumbnail,
+  .search .format-standard.has-post-thumbnail {
+    padding-top: 0; }
   .blog .format-standard:nth-of-type(even),
   .archive .format-standard:nth-of-type(even),
   .search .format-standard:nth-of-type(even) {
@@ -773,11 +785,21 @@ a:active {
   .blog .format-standard .featured-image,
   .archive .format-standard .featured-image,
   .search .format-standard .featured-image {
+    padding: 10px 10px 30px;
     position: relative; }
   .blog .format-standard .entry-header,
   .archive .format-standard .entry-header,
   .search .format-standard .entry-header {
+    padding: 0 85px;
     text-align: center; }
+  .blog .format-standard .entry-content,
+  .archive .format-standard .entry-content,
+  .search .format-standard .entry-content {
+    padding: 0 85px; }
+  .blog .format-standard .entry-footer,
+  .archive .format-standard .entry-footer,
+  .search .format-standard .entry-footer {
+    padding: 0 85px; }
 
 /*--------------------------------------------------------------
 ## Asides
@@ -787,7 +809,7 @@ a:active {
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: #fff;
   max-width: 615px;
-  padding: 50px; }
+  padding: 50px 0; }
   .blog .format-aside:before {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -806,8 +828,14 @@ a:active {
     color: #fff; }
   .blog .format-aside .entry-header {
     letter-spacing: 0.1em;
+    padding: 0 50px;
     text-align: center;
     text-transform: uppercase; }
+  .blog .format-aside .entry-content {
+    padding: 0 50px; }
+  .blog .format-aside .entry-footer {
+    padding: 0 50px;
+    text-align: center; }
 
 /*--------------------------------------------------------------
 ## Audio
@@ -880,11 +908,17 @@ a:active {
   background-color: #fff;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   max-width: 615px;
-  padding: 50px; }
-  .blog .format-link .entry-title {
-    font-family: "Kalam", "Chalkboard", "Comic Sans", script; }
-  .blog .format-link .entry-meta {
+  padding: 50px 0; }
+  .blog .format-link .entry-header {
+    padding: 0 60px;
     text-align: center; }
+  .blog .format-link .entry-title {
+    font-family: "Kalam", "Chalkboard", "Comic Sans", script;
+    padding: 0 60px; }
+  .blog .format-link .entry-content {
+    padding: 0 60px; }
+  .blog .format-link .entry-footer {
+    padding: 0 60px; }
 
 /*--------------------------------------------------------------
 ## Quote
@@ -893,11 +927,16 @@ a:active {
   background-color: #efe8be;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   max-width: 700px;
-  padding: 60px; }
+  padding: 60px 0; }
+  .blog .format-quote .entry-header {
+    padding: 0 60px;
+    text-align: center; }
   .blog .format-quote .entry-title {
     font-family: "Kalam", "Chalkboard", "Comic Sans", script; }
-  .blog .format-quote .entry-meta {
-    text-align: center; }
+  .blog .format-quote .entry-content {
+    padding: 0 60px; }
+  .blog .format-quote .entry-footer {
+    padding: 0 60px; }
 
 /*--------------------------------------------------------------
 ## Status
@@ -906,21 +945,83 @@ a:active {
   background-color: #f9f6e7;
   font-family: "Kalam", "Chalkboard", "Comic Sans", script;
   max-width: 450px;
-  padding: 50px;
+  padding: 50px 0;
   text-align: center; }
-  .blog .format-status .entry-title {
+  .blog .format-status .entry-header {
     display: none; }
+  .blog .format-status .entry-content {
+    padding: 0 50px; }
   .blog .format-status .entry-meta {
     text-align: center; }
+  .blog .format-status .entry-footer {
+    padding: 0 50px; }
+
+/*--------------------------------------------------------------
+## Single Posts
+--------------------------------------------------------------*/
+.single #primary {
+  float: left;
+  max-width: 800px; }
+  .single #primary article {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    padding-bottom: 40px; }
+    .single #primary article .featured-image {
+      padding: 10px 10px 0; }
+    .single #primary article .entry-header {
+      padding: 50px 85px 0;
+      text-align: center; }
+    .single #primary article .entry-content {
+      padding: 0 85px 50px; }
+    .single #primary article .entry-footer {
+      padding: 0 85px; }
+  .single #primary .author-info {
+    background-color: #dfe8e8;
+    padding: 40px 85px; }
+  .single #primary .author-avatar {
+    border-radius: 50px;
+    float: left;
+    height: 85px;
+    overflow: hidden;
+    width: 85px; }
+  .single #primary .author-description {
+    float: right;
+    width: calc(100% - 105px); }
+    .single #primary .author-description h2 {
+      font-size: 18px; }
+
+.single.no-sidebar #primary {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
 
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+#comments {
+  background-color: #fff;
+  padding: 85px; }
+  #comments ol.comment-list,
+  #comments ol.comment-list > li,
+  #comments ol.children,
+  #comments ol.children > li {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+
 .comment-content a {
   word-wrap: break-word; }
 
 .bypostauthor {
   display: block; }
+
+#comments-form {
+  background-color: #f9f6e7;
+  padding: 40px 85px; }
+
+#comments + #comments-form {
+  margin-top: 50px; }
 
 /*--------------------------------------------------------------
 # Media
@@ -1013,7 +1114,14 @@ object {
 # Footer
 --------------------------------------------------------------*/
 #colophon {
+  color: #5e8284;
+  font-size: 14px;
   text-align: center; }
+  #colophon a {
+    color: #5e8284;
+    text-decoration: none; }
+    #colophon a:hover {
+      text-decoration: underline; }
 
 /*--------------------------------------------------------------
 ## SVGs
@@ -1096,5 +1204,63 @@ object {
   stroke-linecap: round;
   stroke-miterlimit: 10;
   stroke-dasharray: 0.9775,4.8876,0.9775,4.8876,0.9775,4.8876; }
+
+/* Little Pencil */
+.pencil-little0 {
+  fill: #EDCFCF; }
+
+.pencil-little1 {
+  fill: #EAEAEA; }
+
+.pencil-little2 {
+  fill: #DDB612; }
+
+.pencil-little3 {
+  opacity: 0.5;
+  fill: #FFFFFF; }
+
+.pencil-little4 {
+  opacity: 0.2;
+  fill: #5B5950; }
+
+.pencil-little5 {
+  fill: #f9f6e7; }
+
+.pencil-little6 {
+  fill: #4F4F4F; }
+
+/* Pencil Shaving */
+.shaving0 {
+  fill: #f9f6e7; }
+
+.shaving1 {
+  fill: #DDB612; }
+
+.shaving2 {
+  fill: #4F4F4F; }
+
+/* Stamp */
+.stamp0 {
+  fill: #ffffff; }
+
+.stamp1 {
+  opacity: 0.7;
+  fill: #527375; }
+
+.stamp2 {
+  fill: #BDCBCC; }
+
+/* Pencil Sharpener */
+.sharpener0 {
+  fill: #939393; }
+
+.sharpener1 {
+  fill: #565656; }
+
+.sharpener2 {
+  fill: #C1C1C1; }
+
+.sharpener3 {
+  fill: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */
