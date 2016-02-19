@@ -20,6 +20,10 @@ get_header(); ?>
 			<?php echo file_get_contents( get_template_directory() . '/images/pencil.svg' ); ?>
 			<?php echo file_get_contents( get_template_directory() . '/images/pen.svg' ); ?>
 			<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
+			<?php echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
+			<?php echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' ); ?>
+			<?php echo file_get_contents( get_template_directory() . '/images/stamp.svg' ); ?>
+			<?php echo file_get_contents( get_template_directory() . '/images/pencil-sharpener.svg' ); ?>
 
 		<?php
 		if ( have_posts() ) :
