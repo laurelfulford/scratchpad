@@ -78,8 +78,12 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'scratchpad' ); ?></p>
 	<?php
 	endif;
-
-	comment_form();
 	?>
 
 </div><!-- #comments -->
+
+<?php if ( comments_open() ) : ?>
+	<div id="comments-form">
+		<?php comment_form(); ?>
+	</div><!-- #comments-form -->
+<?php endif; ?>
