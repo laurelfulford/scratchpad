@@ -41,6 +41,7 @@ function scratchpad_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'scratchpad-avatar', 85, 85, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -76,7 +77,7 @@ function scratchpad_setup() {
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'scratchpad_custom_background_args', array(
-		'default-color' => 'ffffff',
+		'default-color' => 'bdcbcc',
 		'default-image' => '',
 	) ) );
 }
@@ -91,7 +92,7 @@ add_action( 'after_setup_theme', 'scratchpad_setup' );
  * @global int $content_width
  */
 function scratchpad_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'scratchpad_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'scratchpad_content_width', 1200 );
 }
 add_action( 'after_setup_theme', 'scratchpad_content_width', 0 );
 
@@ -104,6 +105,16 @@ function scratchpad_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'scratchpad' ),
 		'id'            => 'sidebar-1',
+		'description'   => '',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'scratchpad' ),
+		'id'            => 'sidebar-2',
 		'description'   => '',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
