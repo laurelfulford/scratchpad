@@ -17,6 +17,7 @@
 	<?php } ?>
 
 	<header class="entry-header">
+		<?php scratchpad_categories(); ?>
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -47,7 +48,13 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php scratchpad_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php if ( is_single() ) {
+		get_template_part( 'template-parts/author-bio' );
+	} ?>
+
+	<?php if ( is_single() ) { ?>
+		<footer class="entry-footer">
+			<?php scratchpad_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+	<?php } ?>
 </article><!-- #post-## -->
