@@ -84,8 +84,10 @@ if ( post_password_required() ) {
 
 <?php if ( comments_open() ) : ?>
 	<div id="comments-form">
-		<?php echo file_get_contents( get_template_directory() . '/images/post-mark.svg' ); ?>
-		<?php echo file_get_contents( get_template_directory() . '/images/stamp.svg' ); ?>
-		<?php comment_form(); ?>
+		<div class="comments-form-contain">
+			<?php echo file_get_contents( get_template_directory() . '/images/post-mark.svg' ); ?>
+			<?php echo file_get_contents( get_template_directory() . '/images/stamp.svg' ); ?>
+			<?php comment_form(); ?>
+		</div><!-- .comments-form-contain -->
 	</div><!-- #comments-form -->
 <?php endif; ?>
