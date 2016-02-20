@@ -708,6 +708,7 @@ a:active {
 		font-weight: bold;
 		line-height: 1.1;
 		margin: 0;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 
 		a {
 			color: #fff;
@@ -1072,6 +1073,8 @@ a:active {
 --------------------------------------------------------------*/
 
 .blog .format-audio {
+	max-width: 800px;
+
 	.entry-title {
 		font-family: $font_handwritten;
 		text-align: center;
@@ -1281,7 +1284,26 @@ a:active {
 		}
 
 		.entry-footer {
-			padding: 0 85px;
+			padding: 30px 85px 0;
+		}
+
+		.tags-links {
+			.tags-header {
+				color: $color_orange;
+				font-size: 13px;
+				font-weight: bold;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+			}
+
+			a {
+				color: #999999;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline
+				}
+			}
 		}
 	}
 
@@ -1344,12 +1366,28 @@ a:active {
 }
 
 #comments-form {
-	background-color: lighten( $color_yellow, 10% );
-	padding: 40px 85px;
+	// Makin' some background stripes for the postcard
+	background-image: repeating-linear-gradient(
+	45deg,
+	rgba( $color_orange, 0.6 ) 0,
+	rgba( $color_orange, 0.6 ) 30px,
+	lighten( $color_yellow, 10% ) 30px,
+	lighten( $color_yellow, 10% ) 60px,
+	rgba( $color_brightblue, 0.6 ) 60px,
+	rgba( $color_brightblue, 0.6 ) 90px,
+	lighten( $color_yellow, 10% ) 90px,
+	lighten( $color_yellow, 10% ) 120px
+	);
+	padding: 15px;
 }
 
 #comments + #comments-form {
 	margin-top: 50px;
+}
+
+.comments-form-contain {
+	background-color: lighten( $color_yellow, 10% );
+	padding: 40px 85px;
 }
 
 /*--------------------------------------------------------------
@@ -1447,13 +1485,119 @@ object {
 # Audio Player
 --------------------------------------------------------------*/
 
-.entry-content .mejs-container.mejs-audio {
+article .mejs-container.mejs-audio {
 	height: 100px !important;
 }
 
-.entry-content .mejs-container.mejs-audio,
-.entry-content .mejs-container.mejs-audio .mejs-controls {
+article .mejs-container.mejs-audio,
+article .mejs-container.mejs-audio .mejs-controls {
 	background-color: $color_orange;
+}
+
+article .mejs-container.mejs-audio {
+	margin-bottom: 1.5em;
+}
+
+article .mejs-container .mejs-controls,
+article .mejs-container.mejs-audio .mejs-controls {
+	bottom: 30px;
+	left: 4%;
+	width: 90%;
+}
+
+article .mejs-container .mejs-controls .mejs-time {
+	color: rgba( 255, 255, 255, 0.6 );
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-time {
+	color: #fff;
+}
+
+article .mejs-container .mejs-controls .mejs-button button,
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button {
+	background-image: none;
+	font-size: 22px;
+	top: 2px;
+	-webkit-transition: color 0.2s;
+	-moz-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+article .mejs-container .mejs-controls .mejs-button button {
+	color: rgba( 255, 255, 255, 0.8 );
+}
+
+article .mejs-container .mejs-controls .mejs-button button:hover {
+	color: #fff;
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button {
+	color: #fff;
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button:hover {
+	color: #fff;
+}
+
+article .mejs-controls .mejs-time-rail .mejs-time-total,
+article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+	background-color: rgba( 255, 255, 255, 0.3 );
+}
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-total {
+	background-color: rgba( 255, 255, 255, 0.3 );
+}
+
+article .mejs-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+	background-color: #aaa;
+}
+
+article .mejs-controls .mejs-time-rail .mejs-time-loaded,
+article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+	background-color: rgba( 255, 255, 255, 0.3 );
+}
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-loaded,
+article .mejs-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+	background-color: #efefef;
+}
+
+article .mejs-controls .mejs-time-rail .mejs-time-current {
+	background-color: #fff;
+}
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-current {
+	background-color: lighten( $color_orange, 20%);
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button,
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button {
+	width: 40px;
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-play button:before,
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-play button:before {
+	content: "\f104";
+}
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-pause button:before,
+article .entry-content .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-pause button:before {
+	content: "\f448";
+}
+
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-mute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-unmute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-mute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-unmute button:before {
+	content: "\f109";
+}
+
+.wp-playlist-current-item {
+	height: auto;
+}
+
+.wp-playlist-caption {
+	padding: 3px 0;
 }
 
 /*--------------------------------------------------------------
@@ -1478,6 +1622,16 @@ object {
 	color: lighten( $color_teal, 5% );
 	font-size: 14px;
 	text-align: center;
+
+	.wrap {
+		padding: 5px 0 10px;
+	}
+
+	.line {
+		display: block;
+		margin: auto;
+		max-width: 75%;
+	}
 
 	a {
 		color: lighten( $color_teal, 5% );
@@ -1684,4 +1838,11 @@ object {
 
 .paperclip0 {
 	fill: #a2a2a2;
+}
+
+/* Line */
+
+.line0 {
+	fill: lighten( desaturate( $color_teal, 10% ), 20% );
+	opacity: 0.6;
 }

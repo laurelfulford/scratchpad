@@ -611,7 +611,8 @@ a:active {
     font-size: 100px;
     font-weight: bold;
     line-height: 1.1;
-    margin: 0; }
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
     #masthead .site-title a {
       color: #fff;
       text-decoration: none; }
@@ -877,11 +878,13 @@ a:active {
 /*--------------------------------------------------------------
 ## Audio
 --------------------------------------------------------------*/
-.blog .format-audio .entry-title {
-  font-family: "Kalam", "Chalkboard", "Comic Sans", script;
-  text-align: center; }
-.blog .format-audio .entry-meta {
-  text-align: center; }
+.blog .format-audio {
+  max-width: 800px; }
+  .blog .format-audio .entry-title {
+    font-family: "Kalam", "Chalkboard", "Comic Sans", script;
+    text-align: center; }
+  .blog .format-audio .entry-meta {
+    text-align: center; }
 
 /*--------------------------------------------------------------
 ## Gallery
@@ -1012,7 +1015,18 @@ a:active {
     .single #primary article .entry-content {
       padding: 0 85px 30px; }
     .single #primary article .entry-footer {
-      padding: 0 85px; }
+      padding: 30px 85px 0; }
+    .single #primary article .tags-links .tags-header {
+      color: #d16221;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.07em;
+      text-transform: uppercase; }
+    .single #primary article .tags-links a {
+      color: #999999;
+      text-decoration: none; }
+      .single #primary article .tags-links a:hover {
+        text-decoration: underline; }
   .single #primary .author-info {
     background-color: #e0e6e7;
     padding: 40px 85px; }
@@ -1056,11 +1070,15 @@ a:active {
   display: block; }
 
 #comments-form {
-  background-color: #f9f6e7;
-  padding: 40px 85px; }
+  background-image: repeating-linear-gradient(45deg, rgba(209, 98, 33, 0.6) 0, rgba(209, 98, 33, 0.6) 30px, #f9f6e7 30px, #f9f6e7 60px, rgba(54, 133, 221, 0.6) 60px, rgba(54, 133, 221, 0.6) 90px, #f9f6e7 90px, #f9f6e7 120px);
+  padding: 15px; }
 
 #comments + #comments-form {
   margin-top: 50px; }
+
+.comments-form-contain {
+  background-color: #f9f6e7;
+  padding: 40px 85px; }
 
 /*--------------------------------------------------------------
 # Media
@@ -1139,12 +1157,96 @@ object {
 /*--------------------------------------------------------------
 # Audio Player
 --------------------------------------------------------------*/
-.entry-content .mejs-container.mejs-audio {
+article .mejs-container.mejs-audio {
   height: 100px !important; }
 
-.entry-content .mejs-container.mejs-audio,
-.entry-content .mejs-container.mejs-audio .mejs-controls {
+article .mejs-container.mejs-audio,
+article .mejs-container.mejs-audio .mejs-controls {
   background-color: #d16221; }
+
+article .mejs-container.mejs-audio {
+  margin-bottom: 1.5em; }
+
+article .mejs-container .mejs-controls,
+article .mejs-container.mejs-audio .mejs-controls {
+  bottom: 30px;
+  left: 4%;
+  width: 90%; }
+
+article .mejs-container .mejs-controls .mejs-time {
+  color: rgba(255, 255, 255, 0.6); }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-time {
+  color: #fff; }
+
+article .mejs-container .mejs-controls .mejs-button button,
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button {
+  background-image: none;
+  font-size: 22px;
+  top: 2px;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  transition: color 0.2s; }
+
+article .mejs-container .mejs-controls .mejs-button button {
+  color: rgba(255, 255, 255, 0.8); }
+
+article .mejs-container .mejs-controls .mejs-button button:hover {
+  color: #fff; }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button {
+  color: #fff; }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button:hover {
+  color: #fff; }
+
+article .mejs-controls .mejs-time-rail .mejs-time-total,
+article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-total {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+article .mejs-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
+  background-color: #aaa; }
+
+article .mejs-controls .mejs-time-rail .mejs-time-loaded,
+article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-loaded,
+article .mejs-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
+  background-color: #efefef; }
+
+article .mejs-controls .mejs-time-rail .mejs-time-current {
+  background-color: #fff; }
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-current {
+  background-color: #e89c70; }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button,
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button {
+  width: 40px; }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-play button:before,
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-play button:before {
+  content: "\f104"; }
+
+article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-pause button:before,
+article .entry-content .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-pause button:before {
+  content: "\f448"; }
+
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-mute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-unmute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-mute button:before,
+article .mejs-audio .mejs-button.mejs-volume-button.mejs-unmute button:before {
+  content: "\f109"; }
+
+.wp-playlist-current-item {
+  height: auto; }
+
+.wp-playlist-caption {
+  padding: 3px 0; }
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -1166,6 +1268,12 @@ object {
   color: #5e8284;
   font-size: 14px;
   text-align: center; }
+  #colophon .wrap {
+    padding: 5px 0 10px; }
+  #colophon .line {
+    display: block;
+    margin: auto;
+    max-width: 75%; }
   #colophon a {
     color: #5e8284;
     text-decoration: none; }
@@ -1324,5 +1432,10 @@ object {
 
 .paperclip0 {
   fill: #a2a2a2; }
+
+/* Line */
+.line0 {
+  fill: #909d9e;
+  opacity: 0.6; }
 
 /*# sourceMappingURL=style.css.map */
