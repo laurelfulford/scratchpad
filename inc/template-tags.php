@@ -72,7 +72,7 @@ function scratchpad_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'scratchpad' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'scratchpad' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			echo '<span class="tags-links"><span class="tags-header">' . esc_html__( 'Tagged:', 'scratchpad' ) . '</span> ' . $tags_list . '</span>'; // WPCS: XSS OK.
 		}
 	}
 
