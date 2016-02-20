@@ -17,12 +17,9 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php echo file_get_contents( get_template_directory() . '/images/pencil.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/pen.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/pencil-sharpener.svg' ); ?>
+			<?php //echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
+			<?php //echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' ); ?>
+			<?php //echo file_get_contents( get_template_directory() . '/images/pencil-sharpener.svg' ); ?>
 
 		<?php
 		if ( have_posts() ) :
@@ -38,6 +35,10 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
+				$number = $wp_query->current_post;
+				if( $number % 3 == 0 ) {
+					echo 'third post!';
+				}
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
