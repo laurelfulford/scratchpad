@@ -40,6 +40,7 @@ $content = apply_filters( 'the_content', get_the_content( $content_text ) );
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
+			<?php scratchpad_post_format(); ?>
 			<?php scratchpad_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php

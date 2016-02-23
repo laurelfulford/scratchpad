@@ -45,6 +45,9 @@
 	</div><!-- .entry-content -->
 
 	<div class="entry-meta">
+		<?php scratchpad_post_format(); ?>
 		<?php scratchpad_posted_on(); ?>
 	</div><!-- .entry-meta -->
+
+	<?php echo file_get_contents( get_template_directory() . '/images/pen.svg' ); ?>
 </article><!-- #post-## -->
