@@ -52,6 +52,7 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'avatar_size' => 100,
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -74,13 +75,19 @@ if ( post_password_required() ) {
 
 	// If comments are closed and there are comments, let's leave a little note, shall we?
 	if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
-
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'scratchpad' ); ?></p>
 	<?php
 	endif;
 	?>
 
 </div><!-- #comments -->
+
+<?php if ( comments_open() && have_comments() ) : ?>
+	<div class="pencil-shaving-contain">
+		<?php echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
+	</div><!-- .pencil-shaving-contain -->
+<?php endif; ?>
+
 
 <?php if ( comments_open() ) : ?>
 	<div id="comments-form">

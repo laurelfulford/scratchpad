@@ -17,7 +17,6 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php //echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
 			<?php //echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' ); ?>
 			<?php //echo file_get_contents( get_template_directory() . '/images/pencil-sharpener.svg' ); ?>
 
@@ -32,12 +31,17 @@ get_header(); ?>
 			<?php
 			endif;
 
+			$currentpost = 1;
+			require get_template_directory() . '/template-parts/scratchpad-pieces.php';
+
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				$number = $wp_query->current_post;
-				if( $number % 3 == 0 ) {
-					echo 'third post!';
+
+				shuffle( $stationary );
+				echo $currentpost;
+				if( $currentpost % 3 == 0 ) {
+					echo 'third post';
 				}
 				/*
 				 * Include the Post-Format-specific template for the content.
@@ -45,6 +49,8 @@ get_header(); ?>
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
+
+				$currentpost++;
 
 			endwhile;
 

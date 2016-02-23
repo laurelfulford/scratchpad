@@ -181,6 +181,17 @@ function scratchpad_fonts_url() {
 }
 
 /**
+ * Wrap avatars in div for easier styling
+ */
+function scratchpad_get_avatar( $avatar ) {
+	if( ! is_admin() ) {
+		$avatar = '<span class="avatar-container">' . $avatar . '</span>';
+	}
+	return $avatar;
+}
+add_filter( 'get_avatar', 'scratchpad_get_avatar', 10, 5 );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
