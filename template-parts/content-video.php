@@ -7,6 +7,12 @@
  * @package Scratchpad
  */
 
+/* translators: %s: Name of current post */
+$content_text = sprintf(
+	wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'scratchpad' ), array( 'span' => array( 'class' => array() ) ) ),
+	the_title( '<span class="screen-reader-text">"', '"</span>', false )
+);
+$content = apply_filters( 'the_content', get_the_content( $content_text ) );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -19,6 +25,10 @@
 				?>
 				<div class="entry-video jetpack-video-wrapper">
 					<?php echo $video_html; ?>
+					<div class="movie-tickets">
+						<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
+						<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
+					</div><!-- .movie-tickets -->
 				</div><!-- .entry-video.jetpack-video-wrapper -->
 			<?php
 			} // endforeach
@@ -26,7 +36,6 @@
 	?>
 
 	<header class="entry-header">
-		<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
