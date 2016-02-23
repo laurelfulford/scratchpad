@@ -49,6 +49,24 @@ function scratchpad_posted_on() {
 }
 endif;
 
+if ( ! function_exists( 'scratchpad_post_format' ) ) :
+/**
+ *	Prints Post Format and link to archives
+ */
+function scratchpad_post_format() {
+	$format = get_post_format();
+	$formats = get_theme_support( 'post-formats' );
+	$postformat = '';
+
+	if ( $format && in_array( $format, $formats[0] ) ) {
+		echo sprintf( '<span class="post-format-label entry-format-' . esc_attr( $format ) . '"><a href="%1$s" title="%2$s">%3$s</a></span><span class="sep">&bull;</span>', // WPCS: XSS OK.
+		esc_url( get_post_format_link( $format ) ),
+		sprintf( esc_attr_x( 'All %1$s posts', 'post format archives link', 'toujours' ), get_post_format_string( $format ) ),
+			esc_html( get_post_format_string( $format ) ) );
+		}
+	}
+endif;
+
 if ( ! function_exists( 'scratchpad_categories' ) ) :
 /**
  * Prints HTML for categories
@@ -81,6 +99,21 @@ function scratchpad_entry_footer() {
 		comments_popup_link( esc_html__( 'Leave a comment', 'scratchpad' ), esc_html__( '1 Comment', 'scratchpad' ), esc_html__( '% Comments', 'scratchpad' ) );
 		echo '</span>';
 	}
+}
+endif;
+
+if ( ! function_exists( 'scratchpad_post_navigation' ) ) :
+/**
+ * Special post navigation
+ */
+function scratchpad_post_navigation() {
+	echo '<div class="post-navigation-container">';
+	the_post_navigation(array(
+		'prev_text' => sprintf( '<span class="post-navigation-header">%s</span> %s', esc_html__( 'Previous Post', 'scratchpad' ), '%title' ),
+		'next_text' => sprintf( '<span class="post-navigation-header">%s</span> %s', esc_html__( 'Next Post', 'scratchpad' ), '%title' ),
+	));
+	echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' );
+	echo '</div>';
 }
 endif;
 
