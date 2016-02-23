@@ -19,6 +19,7 @@ function scratchpad_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'scratchpad_infinite_scroll_render',
 		'footer'    => 'page',
+		'footer_widgets' => 'sidebar-2'
 	) );
 
 	// Add theme support for Responsive Videos.
