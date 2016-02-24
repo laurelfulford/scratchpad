@@ -10,6 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ( is_sticky() && is_home() ) { ?>
+		<span class="featured-post">
+			<?php echo file_get_contents( get_template_directory() . '/images/icon-star.svg' ); ?>
+			<?php esc_html_e( 'Featured', 'scratchpad' ); ?>
+		</span>
+	<?php } ?>
+
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
 			<?php echo file_get_contents( get_template_directory() . '/images/paperclip.svg' ); ?>
@@ -52,10 +59,7 @@
 	<?php if ( is_single() ) {
 		get_template_part( 'template-parts/author-bio' );
 	} ?>
-
-	<?php if ( is_single() ) { ?>
-		<footer class="entry-footer">
-			<?php scratchpad_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	<?php } ?>
+	<footer class="entry-footer">
+		<?php scratchpad_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

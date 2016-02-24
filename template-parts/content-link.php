@@ -10,6 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php if ( is_sticky() && is_home() ) { ?>
+		<span class="featured-post">
+			<?php echo file_get_contents( get_template_directory() . '/images/icon-star.svg' ); ?>
+			<?php esc_html_e( 'Featured', 'scratchpad' ); ?>
+		</span>
+	<?php } ?>
+
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
@@ -24,14 +31,7 @@
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php scratchpad_post_format(); ?>
-			<?php scratchpad_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
+		?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -49,7 +49,8 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php scratchpad_entry_footer(); ?>
+	<footer class="entry-meta">
+		<?php scratchpad_post_format(); ?>
+		<?php scratchpad_posted_on(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
