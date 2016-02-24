@@ -984,6 +984,32 @@ a:active {
 ## Index, Archive, Search
 --------------------------------------------------------------*/
 
+/* Sticky Post */
+
+.featured-post {
+	background-color: $color_orange;
+	color: #fff;
+	font-family: $font_handwritten;
+	font-size: 16px;
+	left: -35px;
+	line-height: 1;
+	padding: 13px 15px 9px 45px;
+	position: absolute;
+	z-index: 100;
+
+	.star {
+		fill: rgba( #fff, 0.5 );
+		height: 19px;
+		left: 12px;
+		margin-top: -10px;
+		position: absolute;
+		top: 50%;
+		width: 20px;
+	}
+}
+
+
+/* General post styles */
 .blog .hentry,
 .archive .hentry,
 .search .hentry {
@@ -1013,6 +1039,7 @@ a:active {
 
 		a {
 			color: #666;
+			display: inline-block;
 			position: relative;
 
 			&:after {
@@ -1020,7 +1047,7 @@ a:active {
 				border-radius: 10px;
 				bottom: 0;
 				content: '';
-				display: inline;
+				display: inline-block;
 				height: 5px;
 				left: 0;
 				position: absolute;
@@ -1055,7 +1082,14 @@ a:active {
 /* Standard Posts */
 
 .format-standard,
-.type-page {
+.type-page,
+.single {
+	&.has-post-thumbnail {
+		.featured-post {
+			top: 30px;
+		}
+	}
+
 	.featured-image {
 		padding: 12px 12px 30px;
 		position: relative;
@@ -1116,17 +1150,17 @@ a:active {
 	}
 
 	.entry-header {
-		padding: 0 85px;
+		padding: 0 70px;
 		text-align: center;
 	}
 
 	.entry-content,
 	.entry-summary {
-		padding: 0 85px;
+		padding: 0 70px;
 	}
 
 	.entry-footer {
-		padding: 0 85px;
+		padding: 0 70px;
 	}
 }
 
@@ -1141,7 +1175,7 @@ a:active {
 	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 	color: #fff;
 	max-width: 615px;
-	padding: 50px 0;
+	padding: 70px 0 50px;
 
 	&:before {
 		background-color: rgba(255,255,255,0.1);
@@ -1235,6 +1269,10 @@ a:active {
 .archive .format-gallery,
 .search .format-gallery {
 	max-width: 1000px;
+
+	.featured-post {
+		top: 30px;
+	}
 
 	.entry-title {
 		font-family: $font_handwritten;
@@ -1380,8 +1418,9 @@ a:active {
 		padding: 0 60px;
 	}
 
-	.entry-footer {
+	.entry-meta {
 		padding: 0 60px;
+		text-align: center;
 	}
 }
 
@@ -1402,6 +1441,10 @@ a:active {
 	max-width: 700px;
 	padding: 60px 0;
 	text-align: center;
+
+	.featured-post {
+		top: 30px;
+	}
 
 	.entry-header {
 		display: none;
@@ -1498,9 +1541,33 @@ a:active {
 		padding: 10px;
 		position: relative;
 
+		iframe {
+			position: relative;
+			z-index: 2;
+		}
+
 		.movie-ticket {
+			height: 89px;
 			position: absolute;
 			top: -20px;
+			width: 180px;
+			z-index: 0;
+
+			&:nth-of-type(2) {
+				left: -95px;
+				top: 40px;
+				-webkit-transform: rotate(60deg);
+				-ms-transform: rotate(60deg);
+				transform: rotate(60deg);
+			}
+
+			&:nth-of-type(1) {
+				left: -60px;
+				top: -2px;
+				-webkit-transform: rotate(100deg);
+				-ms-transform: rotate(100deg);
+				transform: rotate(100deg);
+			}
 		}
 	}
 
@@ -1549,16 +1616,16 @@ a:active {
 		}
 
 		.entry-header {
-			padding: 50px 85px 0;
+			padding: 50px 70px 0;
 			text-align: center;
 		}
 
 		.entry-content {
-			padding: 0 85px 30px;
+			padding: 0 70px 30px;
 		}
 
 		.entry-footer {
-			padding: 30px 85px 0;
+			padding: 30px 70px 0;
 		}
 
 		.tags-links {
@@ -1583,7 +1650,7 @@ a:active {
 
 	.author-info {
 		background-color: lighten( desaturate( $color_teal, 5% ), 50% );
-		padding: 40px 85px;
+		padding: 40px 70px;
 	}
 
 	.author-avatar {
@@ -1665,9 +1732,9 @@ a:active {
 	background-color: #fff;
 
 	.comments-title {
-		border-bottom: 1px solid $color_background;
+		border-bottom: 1px solid rgba( $color_background, 0.6 );
 		font-size: 21px;
-		padding: 40px 85px;
+		padding: 40px 70px;
 	}
 
 	ol.comment-list,
@@ -1680,11 +1747,11 @@ a:active {
 	}
 
 	ol.comment-list {
-		margin-bottom: 40px;
+		padding-bottom: 20px;
 
 		& > li {
 			border-bottom: 1px solid $color_background;
-			padding: 40px 85px 0;
+			padding: 40px 70px 0;
 
 			&:last-of-type {
 				border: 0;
@@ -1765,6 +1832,20 @@ a:active {
 	.bypostauthor .comment-author b {
 		background-color: #f6f798;
 	}
+
+	.comment-navigation {
+		font-family: $font_handwritten;
+		padding: 0 70px;
+
+		a {
+			color: rgba( $color_teal, 0.7);
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }
 
 .comment-content {
@@ -1793,12 +1874,12 @@ a:active {
 	45deg,
 	rgba( $color_orange, 0.6 ) 0,
 	rgba( $color_orange, 0.6 ) 30px,
-	lighten( $color_yellow, 10% ) 30px,
-	lighten( $color_yellow, 10% ) 60px,
+	lighten( $color_yellow, 12% ) 30px,
+	lighten( $color_yellow, 12% ) 60px,
 	rgba( $color_brightblue, 0.6 ) 60px,
 	rgba( $color_brightblue, 0.6 ) 90px,
-	lighten( $color_yellow, 10% ) 90px,
-	lighten( $color_yellow, 10% ) 120px
+	lighten( $color_yellow, 12% ) 90px,
+	lighten( $color_yellow, 12% ) 120px
 	);
 	padding: 15px;
 }
@@ -1808,11 +1889,12 @@ a:active {
 }
 
 .comments-form-contain {
-	background-color: lighten( $color_yellow, 10% );
-	padding: 35px 85px;
+	background-color: lighten( $color_yellow, 12% );
+	padding: 35px 70px;
 	position: relative;
 
-	.comment-notes {
+	.comment-notes,
+	.logged-in-as {
 		color: rgba( $color_teal, 0.7 );
 		font-size: 14px;
 		font-style: italic;
@@ -1835,10 +1917,43 @@ a:active {
 		z-index: 5;
 	}
 
+	label {
+		font-family: $font_handwritten;
+	}
+
 	.comment-form-comment {
 		float: left;
 		margin-right: 5%;
 		width: 45%;
+	}
+
+	.form-submit {
+		clear: both;
+		text-align: center;
+	}
+
+	#submit,
+	#submit:hover,
+	#submit:focus {
+		background: transparent;
+		border: 2px solid rgba( #777, 0.5 );
+		border-radius: 255px 15px 225px 15px/15px 225px 15px;
+		color: rgba( #777, 0.8 );
+		font-family: $font_handwritten;
+		font-size: 14px;
+		letter-spacing: 0.05em;
+		margin: 0 1rem;
+		outline: none;
+		padding: 10px 20px;
+		text-shadow: none;
+		text-transform: uppercase;
+		transition: color 0.2s, border-color 0.2s;
+	}
+
+	#submit:hover,
+	#submit:focus {
+		border-color: rgba( #777, 0.8 );
+		color: #777;
 	}
 }
 
@@ -1947,27 +2062,44 @@ object {
 --------------------------------------------------------------*/
 
 article .mejs-container.mejs-audio {
-	height: 100px !important;
-}
-
-article .mejs-container.mejs-audio,
-article .mejs-container.mejs-audio .mejs-controls {
-	background-color: $color_orange;
+	height: 110px !important;
 }
 
 article .mejs-container.mejs-audio {
+	background-color: $color_orange;
+	background-image: linear-gradient(90deg, lighten( $color_orange, 20%) 1px, transparent 1px),
+	linear-gradient(90deg, lighten( $color_orange, 10%) 1px, transparent 1px);
+	background-size: 50px 30px, 10px 20px;
+	background-position: bottom left;
+	background-repeat: repeat-x;
 	margin-bottom: 1.5em;
+	position: relative;
+
+	&:before {
+		background-color: rgba( #fff, 0.2 );
+		content: "";
+		display: block;
+		height: 50%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+article .mejs-container.mejs-audio .mejs-controls {
+	background-color: transparent;
+	z-index: 2;
 }
 
 article .mejs-container .mejs-controls,
 article .mejs-container.mejs-audio .mejs-controls {
-	bottom: 30px;
+	bottom: 39px;
 	left: 4%;
 	width: 90%;
 }
 
 article .mejs-container .mejs-controls .mejs-time {
-	color: rgba( 255, 255, 255, 0.6 );
+	color: lighten( $color_orange, 10% );
 }
 
 article .mejs-container.mejs-audio .mejs-controls .mejs-time {
@@ -1988,39 +2120,29 @@ article .mejs-container .mejs-controls .mejs-button button {
 	color: rgba( 255, 255, 255, 0.8 );
 }
 
-article .mejs-container .mejs-controls .mejs-button button:hover {
-	color: #fff;
-}
-
-article .mejs-container.mejs-audio .mejs-controls .mejs-button button {
-	color: #fff;
-}
-
+article .mejs-container .mejs-controls .mejs-button button:hover,
+article .mejs-container.mejs-audio .mejs-controls .mejs-button button,
 article .mejs-container.mejs-audio .mejs-controls .mejs-button button:hover {
 	color: #fff;
 }
 
+
 article .mejs-controls .mejs-time-rail .mejs-time-total,
 article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-total {
-	background-color: rgba( 255, 255, 255, 0.3 );
-}
-
-article .mejs-controls .mejs-time-rail .mejs-time-loaded,
-article .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
-	background-color: rgba( 255, 255, 255, 0.3 );
+	background-color: lighten( $color_orange, 20% );
 }
 
 article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-loaded,
 article .mejs-audio .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current {
-	background-color: #efefef;
+	background-color: lighten( $color_orange, 30% );
+}
+
+article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-current {
+	background-color: lighten( $color_orange, 50%);
 }
 
 article .mejs-controls .mejs-time-rail .mejs-time-current {
 	background-color: #fff;
-}
-
-article .mejs-audio .mejs-controls .mejs-time-rail .mejs-time-current {
-	background-color: lighten( $color_orange, 20%);
 }
 
 article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button,
@@ -2114,11 +2236,49 @@ iframe[src*='bandcamp'] {
 	display: block;
 }
 
+#infinite-handle {
+	text-align: center;
+
+	span {
+		background: transparent;
+		border: 0;
+		padding: 0;
+
+		button,
+		button:hover,
+		button:focus {
+			background: transparent;
+			border: 3px solid rgba( $color_teal, 0.5 );
+			border-radius: 255px 15px 225px 15px/15px 225px 15px;
+			color: rgba( $color_teal, 0.8 );
+			font-family: $font_handwritten;
+			font-size: 15px;
+			letter-spacing: 0.05em;
+			margin: 0 1rem;
+			outline: none;
+			padding: 10px 20px;
+			text-shadow: none;
+			text-transform: uppercase;
+			transition: color 0.2s, border-color 0.2s;
+		}
+
+		button:hover,
+		button:focus {
+			border-color: rgba( $color_teal, 0.8 );
+			color: $color_teal;
+		}
+	}
+}
+
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
 #footer-widgets {
+	padding-top: 40px;
+
 	.widget {
 		display: inline-block;
 		vertical-align: top;
@@ -2516,6 +2676,7 @@ background-color: transparent;
 .wp_widget_tag_cloud a {
 	background-color: rgba( 0, 0, 0, 0.05 );
 	display: inline-block;
+	font-family: $font_handwritten;
 	font-size: 15px !important;
 	margin: 0 0 3px 0 !important;
 	padding: 4px 7px !important;
@@ -2526,6 +2687,7 @@ background-color: transparent;
 
 	&:hover {
 		background-color: rgba(0,0,0,0.1);
+		text-decoration: none;
 	}
 }
 
@@ -2877,4 +3039,20 @@ background-color: transparent;
 .line0 {
 	fill: lighten( desaturate( $color_teal, 5% ), 20% );
 	opacity: 0.4;
+}
+
+/*--------------------------------------------------------------
+## Media Queries
+--------------------------------------------------------------*/
+
+@media only screen and (max-width: 1000px) {
+	#masthead .site-title {
+		font-size: 60px;
+	}
+
+	#primary,
+	#secondary {
+		float: none;
+		width: 100%;
+	}
 }
