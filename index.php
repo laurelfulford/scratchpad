@@ -39,9 +39,9 @@ get_header(); ?>
 
 
 				shuffle( $stationary );
-				echo $currentpost;
+				//echo $currentpost;
 				if( $currentpost % 3 == 0 ) {
-					echo 'third post';
+				//	echo 'third post';
 				}
 				/*
 				 * Include the Post-Format-specific template for the content.
