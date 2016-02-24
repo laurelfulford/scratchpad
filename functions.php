@@ -165,6 +165,21 @@ function scratchpad_get_image( $post_id = null, $thumbnail_size = '' ) {
 	}
 }
 
+/**
+ * Return the post URL.
+ *
+ * @uses get_url_in_content() to get the URL in the post meta (if it exists) or
+ * the first link found in the post content.
+ *
+ * Falls back to the post permalink if no URL is found in the post.
+ * Borrowed from Twenty Thirteen
+ */
+function scratchpad_get_link_url() {
+	$content = get_the_content();
+	$has_url = get_url_in_content( $content );
+
+	return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
+}
 
 /**
  * Enqueueing Google fonts

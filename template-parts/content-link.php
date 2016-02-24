@@ -25,13 +25,8 @@
 
 	<header class="entry-header">
 		<?php
-			if ( is_single() ) {
-				scratchpad_categories();
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
-		?>
+		/* Uses URL from post's link for title link, unless one doesn't exist. */
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( scratchpad_get_link_url() ) . '" rel="bookmark">', '</a></h2>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
