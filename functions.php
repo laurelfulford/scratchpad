@@ -141,6 +141,32 @@ function scratchpad_scripts() {
 add_action( 'wp_enqueue_scripts', 'scratchpad_scripts' );
 
 /**
+ * Get first image from a post
+ * Used on image format posts as fallback.
+*/
+function scratchpad_get_image( $post_id = null, $thumbnail_size = '' ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$values = get_attached_media( 'image', $post_id );
+
+	if ( $values ) {
+		foreach ( $values as $child_id => $attachment ) {
+			$image = wp_get_attachment_image_src( $child_id, $thumbnail_size );
+			break;
+		}
+	}
+
+	if ( $image ) {
+		return $image;
+	} else {
+		return false;
+	}
+}
+
+
+/**
  * Enqueueing Google fonts
  */
 function scratchpad_fonts_url() {
