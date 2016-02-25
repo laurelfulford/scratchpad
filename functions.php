@@ -132,6 +132,8 @@ function scratchpad_scripts() {
 
 	wp_enqueue_script( 'scratchpad-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
+	wp_enqueue_script( 'scratchpad-javascript', get_template_directory_uri() . '/js/scratchpad.js', array(), '20151215', true );
+
 	wp_enqueue_script( 'scratchpad-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -203,7 +205,7 @@ function scratchpad_fonts_url() {
 		$font_families = array();
 
 		if ( 'off' !== $lato ) {
-			$font_families[] = 'Lato:400,400italic,700,700italic';
+			$font_families[] = 'Lato:400,400italic,700,900';
 		}
 
 		if ( 'off' !== $kalam ) {
