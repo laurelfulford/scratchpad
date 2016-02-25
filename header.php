@@ -36,6 +36,11 @@
 		<div class="site-branding">
 			<div class="wrap">
 				<?php
+
+				if ( function_exists( 'jetpack_the_site_logo' ) ) {
+					jetpack_the_site_logo();
+				}
+
 				if ( is_front_page() && is_home() ) : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php else : ?>

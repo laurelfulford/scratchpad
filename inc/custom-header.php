@@ -23,7 +23,7 @@
 function scratchpad_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'scratchpad_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
+		'default-text-color'     => 'ffffff',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
@@ -65,8 +65,7 @@ function scratchpad_header_style() {
 		// If the user has set a custom color for the text use that.
 		else :
 	?>
-		.site-title a,
-		.site-description {
+		.site-title a {
 			color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
 	<?php endif; ?>

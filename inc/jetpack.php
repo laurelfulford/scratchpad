@@ -24,6 +24,16 @@ function scratchpad_jetpack_setup() {
 
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
+
+	//Site logo
+	add_image_size( 'scratchpad-site-logo', 300, 800 );
+	add_theme_support( 'site-logo', array(
+		'header-text' => array(
+			'site-title',
+			'site-description',
+		),
+		'size'        => 'scratchpad-site-logo',
+	) );
 }
 add_action( 'after_setup_theme', 'scratchpad_jetpack_setup' );
 
