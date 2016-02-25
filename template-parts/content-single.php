@@ -25,13 +25,11 @@
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
-
-		if ( 'post' === get_post_type() ) : ?>
+		?>
 		<div class="entry-meta">
+			<?php scratchpad_post_format(); ?>
 			<?php scratchpad_posted_on(); ?>
 		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -49,11 +47,18 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( is_single() ) {
-		get_template_part( 'template-parts/author-bio' ); ?>
+	<?php get_template_part( 'template-parts/author-bio' ); ?>
 
-		<footer class="entry-footer">
-			<?php scratchpad_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	<?php } ?>
+	<footer class="entry-footer">
+		<?php scratchpad_entry_footer(); ?>
+	</footer><!-- .entry-footer -->
+
+	<?php
+	/* Post-format specific SVGs */
+	if ( 'audio' == get_post_format() ) {
+		echo '<div class="earbud-container">' .
+		file_get_contents( get_template_directory() . '/images/earbuds.svg' ) .
+		file_get_contents( get_template_directory() . '/images/earbuds-plug.svg' ) .
+		'</div>';
+	} ?>
 </article><!-- #post-## -->
