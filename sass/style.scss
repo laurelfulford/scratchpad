@@ -854,10 +854,7 @@ a:active {
 
 #site-navigation {
 	background: #fff;
-
-	.wrap {
-		padding: 8px 0;
-	}
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .main-navigation {
@@ -891,21 +888,44 @@ a:active {
 .main-navigation a {
 	color: lighten( desaturate( $color_teal, 10% ), 30% );
 	display: block;
-	padding: 8px;
+	padding: 16px;
+	position: relative;
 	text-decoration: none;
+
+	&:hover:after {
+		border-style: solid;
+		border-width: 0 8px 8px 8px;
+		border-color: transparent transparent darken( $color_background, 10% ) transparent;
+		bottom: 0;
+		content: "";
+		height: 0;
+		left: 50%;
+		margin-left: -8px;
+		position: absolute;
+		width: 0;
+	}
 }
 
 .main-navigation ul ul {
-	background-color: rgba( #fff, 0.9);
+	background-color: darken( $color_background, 10% );
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 	float: left;
+	padding: 15px 0 5px;
 	position: absolute;
-	top: 100%;
 	left: -999em;
+	margin-left: -100px;
+	top: 100%;
 	z-index: 99999;
+
+	a {
+		color: #fff;
+	}
 }
 
 .main-navigation ul ul ul {
 	left: -999em;
+	margin-left: 0;
+	padding-top: 0;
 	top: 0;
 }
 
@@ -913,10 +933,6 @@ a:active {
 	display: block;
 	padding: 8px 20px;
 	width: 200px;
-}
-
-.main-navigation ul ul li {
-
 }
 
 .main-navigation li:hover > a,
@@ -933,7 +949,7 @@ a:active {
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-	left: auto;
+	left: 50%;
 }
 
 .main-navigation ul ul li:hover > ul,

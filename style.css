@@ -729,9 +729,8 @@ a:active {
 ## Menus
 --------------------------------------------------------------*/
 #site-navigation {
-  background: #fff; }
-  #site-navigation .wrap {
-    padding: 8px 0; }
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); }
 
 .main-navigation {
   clear: both;
@@ -757,19 +756,38 @@ a:active {
 .main-navigation a {
   color: #abb5b6;
   display: block;
-  padding: 8px;
+  padding: 16px;
+  position: relative;
   text-decoration: none; }
+  .main-navigation a:hover:after {
+    border-style: solid;
+    border-width: 0 8px 8px 8px;
+    border-color: transparent transparent #a0b4b6 transparent;
+    bottom: 0;
+    content: "";
+    height: 0;
+    left: 50%;
+    margin-left: -8px;
+    position: absolute;
+    width: 0; }
 
 .main-navigation ul ul {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #a0b4b6;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   float: left;
+  padding: 15px 0 5px;
   position: absolute;
-  top: 100%;
   left: -999em;
+  margin-left: -100px;
+  top: 100%;
   z-index: 99999; }
+  .main-navigation ul ul a {
+    color: #fff; }
 
 .main-navigation ul ul ul {
   left: -999em;
+  margin-left: 0;
+  padding-top: 0;
   top: 0; }
 
 .main-navigation ul ul a {
@@ -779,7 +797,7 @@ a:active {
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-  left: auto; }
+  left: 50%; }
 
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
