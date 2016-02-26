@@ -35,7 +35,22 @@
 
 		<div class="site-branding">
 			<div class="wrap">
+
 				<?php
+				$header_image = get_header_image();
+				if ( ! empty( $header_image ) ) : ?>
+					<div class="header-image-contain">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+							<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="" class="header-image">
+						</a>
+						<div class="photo-corners">
+							<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+							<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+							<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+							<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+						</div><!-- .photo-corners -->
+					</div><!-- .header-image -->
+				<?php endif;
 
 				if ( function_exists( 'jetpack_the_site_logo' ) ) {
 					jetpack_the_site_logo();
