@@ -725,6 +725,42 @@ a:active {
     line-height: 1.3;
     margin-bottom: 0; }
 
+.header-image-contain {
+  background-color: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 15px;
+  position: relative; }
+  .header-image-contain a {
+    display: block;
+    line-height: 0; }
+  .header-image-contain .photo-corners svg {
+    height: 80px;
+    position: absolute;
+    width: 80px; }
+    .header-image-contain .photo-corners svg:nth-of-type(1) {
+      left: -5px;
+      top: -5px; }
+    .header-image-contain .photo-corners svg:nth-of-type(2) {
+      right: -5px;
+      top: -5px;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+    .header-image-contain .photo-corners svg:nth-of-type(3) {
+      bottom: -5px;
+      right: -5px;
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .header-image-contain .photo-corners svg:nth-of-type(4) {
+      bottom: -5px;
+      left: -5px;
+      -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+      transform: rotate(270deg); }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -762,7 +798,7 @@ a:active {
   .main-navigation a:hover:after {
     border-style: solid;
     border-width: 0 8px 8px 8px;
-    border-color: transparent transparent #a0b4b6 transparent;
+    border-color: transparent transparent #537375 transparent;
     bottom: 0;
     content: "";
     height: 0;
@@ -772,10 +808,9 @@ a:active {
     width: 0; }
 
 .main-navigation ul ul {
-  background-color: #a0b4b6;
+  background-color: #537375;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   float: left;
-  padding: 15px 0 5px;
   position: absolute;
   left: -999em;
   margin-left: -100px;
@@ -787,13 +822,15 @@ a:active {
 .main-navigation ul ul ul {
   left: -999em;
   margin-left: 0;
-  padding-top: 0;
   top: 0; }
 
 .main-navigation ul ul a {
+  border-bottom: 1px solid #689093;
   display: block;
   padding: 8px 20px;
   width: 200px; }
+  .main-navigation ul ul a:hover {
+    background-color: #3e5657; }
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
@@ -892,7 +929,7 @@ a:active {
 .blog .hentry,
 .archive .hentry,
 .search .hentry {
-  margin: 0 auto 50px;
+  margin: 0 auto 80px;
   position: relative; }
   .blog .hentry .more-link,
   .archive .hentry .more-link,
@@ -958,7 +995,18 @@ a:active {
     top: -34px;
     -webkit-transform: rotate(-10deg);
     -ms-transform: rotate(-10deg);
-    transform: rotate(-10deg); }
+    transform: rotate(-10deg);
+    z-index: 10; }
+  .format-standard .featured-image a img,
+  .type-page .featured-image a img,
+  .single .featured-image a img {
+    -webkit-transition: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    transition: opacity 0.2s; }
+  .format-standard .featured-image a:hover img,
+  .type-page .featured-image a:hover img,
+  .single .featured-image a:hover img {
+    opacity: 0.8; }
 
 .blog .format-standard,
 .archive .format-standard,
@@ -1181,15 +1229,15 @@ a:active {
 .blog .format-image,
 .archive .format-image,
 .search .format-image {
-  max-width: 1000px; }
+  max-width: 1000px;
+  text-align: center; }
   .blog .format-image .entry-title,
   .archive .format-image .entry-title,
   .search .format-image .entry-title {
     font-family: "Kalam", "Chalkboard", "Comic Sans", script;
     font-size: 25px;
     font-weight: normal;
-    margin-bottom: 0;
-    text-align: center; }
+    margin-bottom: 0; }
     .blog .format-image .entry-title a,
     .archive .format-image .entry-title a,
     .search .format-image .entry-title a {
@@ -1201,8 +1249,7 @@ a:active {
   .blog .format-image .entry-meta,
   .archive .format-image .entry-meta,
   .search .format-image .entry-meta {
-    color: rgba(83, 115, 117, 0.7);
-    text-align: center; }
+    color: rgba(83, 115, 117, 0.7); }
     .blog .format-image .entry-meta a,
     .archive .format-image .entry-meta a,
     .search .format-image .entry-meta a {
@@ -1212,7 +1259,8 @@ a:active {
   .search .format-image .featured-image {
     background-color: #fff;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    display: inline-block;
+    margin: 0 auto 30px;
     padding: 15px; }
     .blog .format-image .featured-image a,
     .archive .format-image .featured-image a,
@@ -1338,7 +1386,7 @@ a:active {
     background-image: linear-gradient(#dfd9b4 1px, transparent 1px), linear-gradient(90deg, #dfd9b4 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: -1px -1px;
-    color: rgba(51, 51, 51, 0.5);
+    color: #b0a14b;
     font-size: 24px;
     padding: 40px 60px 60px;
     text-align: center; }
@@ -1348,16 +1396,7 @@ a:active {
     .archive .format-quote .entry-summary:before,
     .search .format-quote .entry-content:before,
     .search .format-quote .entry-summary:before {
-      background: url(images/quote.svg) 0 0 no-repeat;
-      background-size: 100%;
-      content: "";
-      display: block;
-      height: 62px;
-      left: 0;
-      margin: 0 auto 20px;
-      opacity: 0.2;
-      top: 0;
-      width: 70px; }
+      content: ""; }
     .blog .format-quote .entry-content p:last-child,
     .blog .format-quote .entry-summary p:last-child,
     .archive .format-quote .entry-content p:last-child,
@@ -1387,7 +1426,7 @@ a:active {
     .archive .format-quote .entry-summary a,
     .search .format-quote .entry-content a,
     .search .format-quote .entry-summary a {
-      color: rgba(51, 51, 51, 0.75);
+      color: #b0a14b;
       text-decoration: none; }
       .blog .format-quote .entry-content a:hover,
       .blog .format-quote .entry-summary a:hover,
@@ -1396,6 +1435,15 @@ a:active {
       .search .format-quote .entry-content a:hover,
       .search .format-quote .entry-summary a:hover {
         text-decoration: underline; }
+    .blog .format-quote .entry-content .quote,
+    .blog .format-quote .entry-summary .quote,
+    .archive .format-quote .entry-content .quote,
+    .archive .format-quote .entry-summary .quote,
+    .search .format-quote .entry-content .quote,
+    .search .format-quote .entry-summary .quote {
+      fill: #ded59c;
+      height: 67px;
+      width: 80px; }
 
 /*--------------------------------------------------------------
 ## Status
@@ -1668,11 +1716,39 @@ a:active {
 
 /* Archives header */
 .page-header {
-  font-family: "Kalam", "Chalkboard", "Comic Sans", script;
-  font-size: 20px;
-  text-align: center; }
-  .page-header h1 {
-    font-weight: normal; }
+  margin-bottom: 70px;
+  position: relative; }
+  .page-header .page-title {
+    background-color: #fff;
+    border-radius: 10px;
+    border-top: 10px solid #d16221;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    color: #537375;
+    display: inline-block;
+    font-family: "Kalam", "Chalkboard", "Comic Sans", script;
+    font-weight: normal;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    max-width: 50%;
+    padding: 20px 60px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase; }
+    .page-header .page-title:before, .page-header .page-title:after {
+      border-top: 1px solid #537375;
+      content: "";
+      position: absolute;
+      top: 45%;
+      width: 20px; }
+    .page-header .page-title:before {
+      left: 2px; }
+    .page-header .page-title:after {
+      right: 2px; }
+  .page-header p {
+    color: #698587;
+    font-size: 15px; }
 
 /*--------------------------------------------------------------
 ## Comments
@@ -2123,7 +2199,8 @@ iframe[src*='bandcamp'] {
 # Widgets
 --------------------------------------------------------------*/
 .widget {
-  background: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(51, 51, 51, 0.5);
   font-size: 90%;
   margin: 0 0 1.5em;
@@ -2653,8 +2730,18 @@ iframe[src*='bandcamp'] {
     font-size: 60px; }
 
   #primary,
-  #secondary {
+  .single #primary,
+  .page #primary,
+  #secondary,
+  .single #secondary,
+  .page #secondary {
     float: none;
-    width: 100%; } }
+    width: 100%; }
+
+  .single #primary article.post,
+  .single #primary article.page,
+  .page #primary article.post,
+  .page #primary article.page {
+    max-width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
