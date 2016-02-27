@@ -18,6 +18,8 @@
 	<?php } ?>
 
 	<div class="entry-content">
+		<?php echo file_get_contents( get_template_directory() . '/images/quote.svg' ); ?>
+
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */

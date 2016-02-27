@@ -26,24 +26,19 @@ $content = apply_filters( 'the_content', get_the_content( $content_text ) );
 	<?php
 		$audio = get_media_embedded_in_content( $content, array( 'audio' ) );
 
-		if ( ! empty( $audio ) ) {
-			foreach ( $audio as $audio_html ) {
-				$content = str_replace( $audio_html, '', $content );
-				?>
-				<div class="entry-audio">
-					<?php echo $audio_html; ?>
-				</div><!-- .entry-audio -->
-			<?php } // endforeach
-		} // endif !empty ( $media )
+		if ( ! empty( $audio ) ) { ?>
+
+			<div class="entry-audio">
+				<?php echo $audio_html; ?>
+			</div><!-- .entry-audio -->
+
+		<?php } // endif !empty ( $media )
 	?>
 
 	<header class="entry-header">
 		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
+
+		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
