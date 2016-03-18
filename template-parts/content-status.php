@@ -10,12 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( is_sticky() && is_home() ) { ?>
-		<span class="featured-post">
-			<?php echo file_get_contents( get_template_directory() . '/images/icon-star.svg' ); ?>
-			<?php esc_html_e( 'Featured', 'scratchpad' ); ?>
-		</span>
-	<?php } ?>
+	<?php scratchpad_sticky(); ?>
 
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
@@ -45,8 +40,10 @@
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'scratchpad' ),
-				'after'  => '</div>',
+				'before'      => '<div class="page-links">' . esc_html__( 'Pages:', 'scratchpad' ),
+				'after'       => '</div>',
+				'link_before' => '<span>',
+				'link_after'  => '</span>',
 			) );
 		?>
 	</div><!-- .entry-content -->

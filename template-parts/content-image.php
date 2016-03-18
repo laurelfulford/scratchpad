@@ -18,12 +18,7 @@ $image = get_media_embedded_in_content( $content, array( 'image' ) );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( is_sticky() && is_home() ) { ?>
-		<span class="featured-post">
-			<?php echo file_get_contents( get_template_directory() . '/images/icon-star.svg' ); ?>
-			<?php esc_html_e( 'Featured', 'scratchpad' ); ?>
-		</span>
-	<?php } ?>
+	<?php scratchpad_sticky(); ?>
 
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
@@ -35,6 +30,7 @@ $image = get_media_embedded_in_content( $content, array( 'image' ) );
 				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
 			</div><!-- .photo-corners -->
 		</div><!-- .featured-image -->
+
 	<?php } else if ( ! empty( $image ) ) { ?>
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>"><?php echo $image[0]; ?></a>

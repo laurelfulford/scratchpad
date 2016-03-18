@@ -11,12 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( is_sticky() && is_home() ) { ?>
-		<span class="featured-post">
-			<?php echo file_get_contents( get_template_directory() . '/images/icon-star.svg' ); ?>
-			<?php esc_html_e( 'Featured', 'scratchpad' ); ?>
-		</span>
-	<?php } ?>
+	<?php scratchpad_sticky(); ?>
 
 	<?php
 		if ( get_post_gallery() ) { ?>
