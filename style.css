@@ -937,6 +937,13 @@ a:active {
 /*--------------------------------------------------------------
 ## Index, Archive, Search
 --------------------------------------------------------------*/
+/* Separator stationary */
+.separator {
+  margin-bottom: 80px;
+  text-align: center; }
+  .separator svg {
+    width: 500px; }
+
 /* General post styles */
 .blog .hentry,
 .archive .hentry,
@@ -1703,13 +1710,19 @@ a:active {
 
 .sticky.format-status .pen {
   display: none; }
-.sticky.format-status .post-format-label,
-.sticky.format-status .posted-on {
+.sticky.format-status .post-format-label {
   background: #f6f798;
   display: inline-block; }
 
-.sticky.format-link .featured-post {
-  left: -80px; }
+.sticky.format-quote .post-format-label {
+  background: #f6f798;
+  display: inline-block; }
+
+.sticky.format-link .binderclip {
+  display: none; }
+
+.sticky.format-video .movie-tickets {
+  display: none; }
 
 /*--------------------------------------------------------------
 ## Single Posts
@@ -2884,6 +2897,26 @@ iframe[src*='bandcamp'] {
 .highlighter2 {
   opacity: 0.2;
   fill: #7F7F7F; }
+
+/* Mars */
+.grip-pencil0 {
+  fill: #3685dd; }
+
+.grip-pencil1 {
+  fill: #E1E4E5; }
+
+.grip-pencil2 {
+  opacity: 0.8;
+  fill: #0E73E2; }
+
+.grip-pencil3 {
+  fill: #EFEFEF; }
+
+.grip-pencil4 {
+  fill: #C6C6C6; }
+
+.grip-pencil5 {
+  fill: #9D9E9E; }
 
 /*--------------------------------------------------------------
 ## Media Queries

@@ -17,9 +17,6 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php //echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' ); ?>
-			<?php //echo file_get_contents( get_template_directory() . '/images/pencil-sharpener.svg' ); ?>
-
 		<?php
 		if ( have_posts() ) :
 
@@ -37,11 +34,12 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-
 				shuffle( $stationary );
-				//echo $currentpost;
+				echo $currentpost;
 				if( $currentpost % 3 == 0 ) {
-				//	echo 'third post';
+					echo '<div class="separator">';
+					echo file_get_contents( get_template_directory() . '/images/' . $stationary[0] );
+					echo '</div>';
 				}
 				/*
 				 * Include the Post-Format-specific template for the content.

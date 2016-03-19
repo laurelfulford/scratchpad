@@ -41,7 +41,19 @@ add_action( 'after_setup_theme', 'scratchpad_jetpack_setup' );
  * Custom render function for Infinite Scroll.
  */
 function scratchpad_infinite_scroll_render() {
+	require get_template_directory() . '/template-parts/scratchpad-pieces.php';
+	$currentpost = get_option( 'posts_per_page' );
+
 	while ( have_posts() ) {
+		shuffle( $stationary );
+		echo $currentpost;
+		if( $currentpost % 3 == 0 ) {
+			echo '<div class="separator">';
+			echo file_get_contents( get_template_directory() . '/images/' . $stationary[0] );
+			echo '</div>';
+		}
+		$currentpost++;
+
 		the_post();
 		if ( is_search() ) :
 		    get_template_part( 'template-parts/content', 'search' );
