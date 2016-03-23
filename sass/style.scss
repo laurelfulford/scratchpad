@@ -2808,6 +2808,28 @@ iframe[src*='bandcamp'] {
 				text-decoration: underline;
 			}
 		}
+
+		.jetpack-social-navigation #menu-social-menu {
+			li {
+				margin: 10px;
+			}
+
+			a {
+				opacity: 0.7;
+				-webkit-transition: opacity 0.2s;
+				-moz-transition: opacity 0.2s;
+				transition: opacity 0.2s;
+
+				&:hover {
+					opacity: 1.0;
+					text-decoration: none;
+				}
+
+				&:before {
+					font-size: 20px;
+				}
+			}
+		}
 	}
 }
 
