@@ -132,7 +132,7 @@ function scratchpad_scripts() {
 
 	wp_enqueue_script( 'scratchpad-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'scratchpad-javascript', get_template_directory_uri() . '/js/scratchpad.js', array(), '20151215', true );
+	wp_enqueue_script( 'scratchpad-javascript', get_template_directory_uri() . '/js/scratchpad.js', array( 'jquery', 'masonry' ), '20151215', true );
 
 	wp_enqueue_script( 'scratchpad-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

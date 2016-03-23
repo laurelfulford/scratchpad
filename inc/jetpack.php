@@ -46,8 +46,7 @@ function scratchpad_infinite_scroll_render() {
 
 	while ( have_posts() ) {
 		shuffle( $stationary );
-		echo $currentpost;
-		if( $currentpost % 3 == 0 ) {
+		if( $currentpost % 3 == 0 && ! is_sticky() ) {
 			echo '<div class="separator">';
 			echo file_get_contents( get_template_directory() . '/images/' . $stationary[0] );
 			echo '</div>';

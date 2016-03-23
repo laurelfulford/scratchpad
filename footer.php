@@ -18,7 +18,9 @@
 
 			<?php if ( is_active_sidebar( 'sidebar-2' ) ) { ?>
 				<aside id="footer-widgets" class="widget-area" role="complementary">
-					<?php dynamic_sidebar( 'sidebar-2' ); ?>
+					<div class="grid-container">
+						<?php dynamic_sidebar( 'sidebar-2' ); ?>
+					</div>
 				</aside><!-- #secondary -->
 			<?php } ?>
 

@@ -123,7 +123,7 @@ if ( ! function_exists( 'scratchpad_sticky' ) ) :
  * Write the highlight to the page for sticky posts
  */
 function scratchpad_sticky() {
-	if ( is_sticky() && is_home() ) { ?>
+	if ( is_sticky() && is_front_page() ) { ?>
 		<span class="featured-post">
 			<?php echo file_get_contents( get_template_directory() . '/images/highlighter.svg' ); ?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Featured', 'scratchpad' ); ?></span>
