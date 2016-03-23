@@ -325,7 +325,7 @@ blockquote {
   padding-left: 80px;
   position: relative; }
   blockquote:before {
-    background: url(images/quote.svg) 0 0 no-repeat;
+    background: url("images/quote.svg") 0 0 no-repeat;
     background-size: 100%;
     content: "";
     display: block;
@@ -3245,12 +3245,15 @@ iframe[src*='bandcamp'] {
 
   /* Audio Player */
   article .mejs-container.mejs-audio {
-    background-size: 9% 25px, 2% 16px;
+    background-size: 0 0, 3% 20px;
     height: 80px !important; }
 
   article .mejs-container .mejs-controls,
   article .mejs-container.mejs-audio .mejs-controls {
     bottom: 26px; }
+
+  article .mejs-container.mejs-audio .mejs-controls .mejs-playpause-button.mejs-play button:before {
+    border-width: 10px 0 10px 18px; }
 
   /* Image, gallery post */
   .blog .format-image .featured-image,
