@@ -22,7 +22,7 @@ $image = get_media_embedded_in_content( $content, array( 'image' ) );
 
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
-			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'scratchpad-featured' ); ?></a>
 			<div class="photo-corners">
 				<?php
 					get_template_part( 'images/inline', 'photo-corners.svg' );

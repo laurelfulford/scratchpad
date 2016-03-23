@@ -34,6 +34,9 @@ function scratchpad_jetpack_setup() {
 		),
 		'size'        => 'scratchpad-site-logo',
 	) );
+
+	// Add theme support for Social Menus
+	add_theme_support( 'jetpack-social-menu' );
 }
 add_action( 'after_setup_theme', 'scratchpad_jetpack_setup' );
 
@@ -56,5 +59,24 @@ function scratchpad_infinite_scroll_render() {
 		else :
 		    get_template_part( 'template-parts/content', get_post_format() );
 		endif;
+	}
+}
+
+/**
+ * Return early if Site Logo is not available.
+ */
+function scratchpad_the_site_logo() {
+	if ( ! function_exists( 'jetpack_the_site_logo' ) ) {
+		return;
+	} else {
+		jetpack_the_site_logo();
+	}
+}
+
+function scratchpad_social_menu() {
+	if ( ! function_exists( 'jetpack_social_menu' ) ) {
+		return;
+	} else {
+		jetpack_social_menu();
 	}
 }

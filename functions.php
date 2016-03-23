@@ -42,6 +42,7 @@ function scratchpad_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'scratchpad-avatar', 85, 85, true );
+	add_image_size( 'scratchpad-featured', 860, 9999 );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -92,7 +93,7 @@ add_action( 'after_setup_theme', 'scratchpad_setup' );
  * @global int $content_width
  */
 function scratchpad_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'scratchpad_content_width', 1200 );
+	$GLOBALS['content_width'] = apply_filters( 'scratchpad_content_width', 840 );
 }
 add_action( 'after_setup_theme', 'scratchpad_content_width', 0 );
 

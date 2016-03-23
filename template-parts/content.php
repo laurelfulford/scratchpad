@@ -16,7 +16,7 @@
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>">
 				<?php get_template_part( 'images/inline', 'paperclip.svg' ); ?>
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail( 'scratchpad-featured' ); ?>
 			</a>
 		</div><!-- .featured-image -->
 	<?php } ?>
