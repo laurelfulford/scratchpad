@@ -3094,9 +3094,9 @@ iframe[src*='bandcamp'] {
 
   /* Header */
   #masthead .site-branding {
-    padding: 70px 0 40px; }
+    padding: 70px 0 20px; }
   #masthead .site-title {
-    font-size: 30px; }
+    font-size: 34px; }
   #masthead .site-description {
     font-size: 18px; }
 

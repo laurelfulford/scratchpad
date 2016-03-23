@@ -15,7 +15,7 @@
 	<?php if ( has_post_thumbnail() ) { ?>
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>">
-				<?php echo file_get_contents( get_template_directory() . '/images/paperclip.svg' ); ?>
+				<?php get_template_part( 'images/inline', 'paperclip.svg' ); ?>
 				<?php the_post_thumbnail(); ?>
 			</a>
 		</div><!-- .featured-image -->

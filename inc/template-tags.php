@@ -61,7 +61,7 @@ function scratchpad_post_format() {
 	if ( $format && in_array( $format, $formats[0] ) ) {
 		echo sprintf( '<span class="post-format-label entry-format-' . esc_attr( $format ) . '"><a href="%1$s" title="%2$s">%3$s</a></span><span class="sep">&bull;</span>', // WPCS: XSS OK.
 		esc_url( get_post_format_link( $format ) ),
-		sprintf( esc_attr_x( 'All %1$s posts', 'post format archives link', 'toujours' ), get_post_format_string( $format ) ),
+		sprintf( esc_attr_x( 'All %1$s posts', 'post format archives link', 'scratchpad' ), get_post_format_string( $format ) ),
 			esc_html( get_post_format_string( $format ) ) );
 		}
 	}

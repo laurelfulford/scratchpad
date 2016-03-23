@@ -29,16 +29,12 @@ get_header(); ?>
 			endif;
 
 			$currentpost = 1;
-			require get_template_directory() . '/template-parts/scratchpad-pieces.php';
 
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-				shuffle( $stationary );
 
 				if( $currentpost % 3 == 0 && ! is_sticky() ) {
-					echo '<div class="separator">';
-					echo file_get_contents( get_template_directory() . '/images/' . $stationary[0] );
-					echo '</div>';
+					get_template_part( 'template-parts/scratchpad', 'pieces' );
 				}
 				/*
 				 * Include the Post-Format-specific template for the content.
