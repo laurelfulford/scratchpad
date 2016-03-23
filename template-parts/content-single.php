@@ -53,10 +53,10 @@
 
 	<?php
 	/* Post-format specific SVGs */
-	if ( 'audio' == get_post_format() ) {
-		echo '<div class="earbud-container">' .
-		file_get_contents( get_template_directory() . '/images/earbuds.svg' ) .
-		file_get_contents( get_template_directory() . '/images/earbuds-plug.svg' ) .
-		'</div>';
-	} ?>
+	if ( 'audio' == get_post_format() ) : ?>
+		<div class="earbud-container">
+			<?php get_template_part( 'images/inline', 'earbuds.svg' ); ?>
+			<?php get_template_part( 'images/inline', 'earbuds-plug.svg' ); ?>
+		</div>
+	<?php endif; ?>
 </article><!-- #post-## -->

@@ -1899,13 +1899,13 @@ a:active {
     transform: rotate(10deg);
     width: 250px; }
   .earbud-container svg.earbud-plug {
-    bottom: -10px;
     height: 191px;
-    right: -250px;
-    -webkit-transform: rotate(10deg);
+    -webkit-transform: rotate(90deg);
     -ms-transform: rotate(10deg);
-    transform: rotate(10deg);
-    width: 270px; }
+    transform: rotate(90deg);
+    width: 270px;
+    top: 100%;
+    right: -50px; }
 
 /* Archives header */
 .page-header {
