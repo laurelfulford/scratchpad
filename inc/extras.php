@@ -38,17 +38,3 @@ function scratchpad_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'scratchpad_body_classes' );
-
-
-/**
-* Remove the 1st gallery shortcode from gallery post format content.
-*/
-function scratchpad_strip_first_gallery( $content ) {
-	if ( 'gallery' === get_post_format() && 'post' === get_post_type() ) {
-		$regex = '/\[gallery.*]/';
-		$content = preg_replace( $regex, '', $content, 1 );
-	}
-
-	return $content;
-}
-add_filter( 'the_content', 'scratchpad_strip_first_gallery' );
