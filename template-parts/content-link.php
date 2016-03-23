@@ -46,5 +46,5 @@
 		<?php scratchpad_posted_on(); ?>
 	</footer><!-- .entry-footer -->
 
-	<?php echo file_get_contents( get_template_directory() . '/images/binderclip.svg' ); ?>
+	<?php get_template_part( 'images/inline', 'binderclip.svg' ); ?>
 </article><!-- #post-## -->

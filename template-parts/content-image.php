@@ -24,10 +24,12 @@ $image = get_media_embedded_in_content( $content, array( 'image' ) );
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 			<div class="photo-corners">
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+				<?php
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+				?>
 			</div><!-- .photo-corners -->
 		</div><!-- .featured-image -->
 
@@ -35,10 +37,12 @@ $image = get_media_embedded_in_content( $content, array( 'image' ) );
 		<div class="featured-image">
 			<a href="<?php the_permalink(); ?>"><?php echo $image[0]; ?></a>
 			<div class="photo-corners">
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-				<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+				<?php
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+					get_template_part( 'images/inline', 'photo-corners.svg' );
+				?>
 			</div><!-- .photo-corners -->
 		</div><!-- .featured-image -->
 	<?php } ?>

@@ -53,5 +53,5 @@
 		<?php scratchpad_posted_on(); ?>
 	</div><!-- .entry-meta -->
 
-	<?php echo file_get_contents( get_template_directory() . '/images/pen.svg' ); ?>
+	<?php get_template_part( 'images/inline', 'pen.svg' ); ?>
 </article><!-- #post-## -->

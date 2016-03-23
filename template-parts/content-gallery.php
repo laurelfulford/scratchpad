@@ -18,10 +18,12 @@
 			<div class="entry-gallery">
 				<?php echo get_post_gallery(); ?>
 				<div class="photo-corners">
-					<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-					<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-					<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
-					<?php echo file_get_contents( get_template_directory() . '/images/photo-corners.svg' ); ?>
+					<?php
+						get_template_part( 'images/inline', 'photo-corners.svg' );
+						get_template_part( 'images/inline', 'photo-corners.svg' );
+						get_template_part( 'images/inline', 'photo-corners.svg' );
+						get_template_part( 'images/inline', 'photo-corners.svg' );
+					?>
 				</div><!-- .photo-corners -->
 			</div><!-- .entry-gallery -->
 		<?php

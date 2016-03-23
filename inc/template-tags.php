@@ -112,7 +112,7 @@ function scratchpad_post_navigation() {
 		'prev_text' => sprintf( '<span class="post-navigation-header">%s</span> %s', esc_html__( 'Previous Post', 'scratchpad' ), '%title' ),
 		'next_text' => sprintf( '<span class="post-navigation-header">%s</span> %s', esc_html__( 'Next Post', 'scratchpad' ), '%title' ),
 	));
-	echo file_get_contents( get_template_directory() . '/images/little-pencil.svg' );
+	get_template_part( 'images/inline', 'little-pencil.svg' );
 	echo '</div>';
 }
 endif;
@@ -125,7 +125,7 @@ if ( ! function_exists( 'scratchpad_sticky' ) ) :
 function scratchpad_sticky() {
 	if ( is_sticky() && is_front_page() ) { ?>
 		<span class="featured-post">
-			<?php echo file_get_contents( get_template_directory() . '/images/highlighter.svg' ); ?>
+			<?php get_template_part( 'images/inline', 'highlighter.svg' ); ?>
 			<span class="screen-reader-text"><?php esc_html_e( 'Featured', 'scratchpad' ); ?></span>
 		</span>
 	<?php }

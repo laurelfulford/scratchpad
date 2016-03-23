@@ -84,7 +84,7 @@ if ( post_password_required() ) {
 
 <?php if ( comments_open() && have_comments() ) : ?>
 	<div class="pencil-shaving-contain">
-		<?php echo file_get_contents( get_template_directory() . '/images/pencil-shaving.svg' ); ?>
+		<?php get_template_part( 'images/inline', 'pencil-shaving.svg' ); ?>
 	</div><!-- .pencil-shaving-contain -->
 <?php endif; ?>
 
@@ -92,9 +92,11 @@ if ( post_password_required() ) {
 <?php if ( comments_open() ) : ?>
 	<div id="comments-form">
 		<div class="comments-form-contain">
-			<?php echo file_get_contents( get_template_directory() . '/images/post-mark.svg' ); ?>
-			<?php echo file_get_contents( get_template_directory() . '/images/stamp.svg' ); ?>
-			<?php comment_form(); ?>
+			<?php
+				get_template_part( 'images/inline', 'post-mark.svg' );
+				get_template_part( 'images/inline', 'stamp.svg' );
+				comment_form();
+			?>
 		</div><!-- .comments-form-contain -->
 	</div><!-- #comments-form -->
 <?php endif; ?>

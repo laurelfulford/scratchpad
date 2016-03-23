@@ -28,8 +28,8 @@ $content = apply_filters( 'the_content', get_the_content( $content_text ) );
 				<div class="entry-video jetpack-video-wrapper">
 					<?php echo $video_html; ?>
 					<div class="movie-tickets">
-						<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
-						<?php echo file_get_contents( get_template_directory() . '/images/movie-ticket.svg' ); ?>
+						<?php get_template_part( 'images/inline', 'movie-ticket.svg' ); ?>
+						<?php get_template_part( 'images/inline', 'movie-ticket.svg' ); ?>
 					</div><!-- .movie-tickets -->
 				</div><!-- .entry-video.jetpack-video-wrapper -->
 			<?php
