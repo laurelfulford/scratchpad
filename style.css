@@ -325,7 +325,7 @@ blockquote {
   padding-left: 80px;
   position: relative; }
   blockquote:before {
-    background: url("images/quote.svg") 0 0 no-repeat;
+    background: url("images/icon-quote.svg") 0 0 no-repeat;
     background-size: 100%;
     content: "";
     display: block;

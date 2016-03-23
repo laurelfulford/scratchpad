@@ -10,8 +10,6 @@ $stationary = array(
 
 shuffle( $stationary );
 echo '<div class="separator">';
-echo get_template_part( 'images/inline', $stationary[0] );
+get_template_part( 'images/inline', $stationary[0] );
 echo '</div>';
-
-
 ?>
