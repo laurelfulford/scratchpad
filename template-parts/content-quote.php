@@ -13,7 +13,7 @@
 	<?php scratchpad_sticky(); ?>
 
 	<div class="entry-content">
-		<?php get_template_part( 'images/inline', 'quote' ); ?>
+		<?php get_template_part( 'images/inline', 'quote.svg' ); ?>
 
 		<?php
 			the_content( sprintf(

@@ -413,6 +413,7 @@ hr {
 ul,
 ol {
 	margin: 0 0 1.5em 3em;
+	padding: 0;
 }
 
 ul {
@@ -426,7 +427,7 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: 2em;
 }
 
 dt {
@@ -443,8 +444,30 @@ img {
 }
 
 table {
+	border-top: 1px solid #ddd;
 	margin: 0 0 1.5em;
 	width: 100%;
+
+	td,
+	th {
+		border-bottom: 1px solid #ddd;
+		font-size: 90%;
+		padding: 0.5em;
+	}
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
 }
 
 .sep {
@@ -3799,6 +3822,13 @@ background-color: transparent;
 		}
 	}
 
+	/* Content */
+	.page-header {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 800px;
+	}
+
 	/* Footer */
 
 	#footer-widgets {
@@ -3831,6 +3861,10 @@ background-color: transparent;
 		cite {
 			font-size: 16px;
 		}
+	}
+
+	.page-header .page-title {
+		max-width: 400px;
 	}
 }
 
@@ -3869,6 +3903,10 @@ background-color: transparent;
 	}
 
 	/* Content */
+	.page-header .page-title {
+		max-width: 100%;
+	}
+
 	.entry-header {
 		padding: 0 70px;
 		text-align: center;
