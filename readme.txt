@@ -36,4 +36,5 @@ Scratchpad includes support for Infinite Scroll in Jetpack.
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 * Lato font https://www.google.com/fonts/specimen/Lato, (C) Łukasz Dziedzic, [SIL Open Font License 1.1] http://scripts.sil.org/OFL
 * Kalam font, (C) Indian Type Foundry, [SIL Open Font License 1.1] http://scripts.sil.org/OFL
+* Icons from IcoMoon, Free Version (C) Roonas. [GPL] http://www.gnu.org/licenses/gpl.html [CC by 4.0] http://creativecommons.org/licenses/by/4.0/
 * Images in screenshot from Unsplash http://unsplash.com, [CC0], https://creativecommons.org/publicdomain/zero/1.0/. From top to bottom:
