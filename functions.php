@@ -228,7 +228,7 @@ function scratchpad_fonts_url() {
  * Wrap avatars in div for easier styling
  */
 function scratchpad_get_avatar( $avatar ) {
-	if( ! is_admin() ) {
+	if ( ! is_admin() ) {
 		$avatar = '<span class="avatar-container">' . $avatar . '</span>';
 	}
 	return $avatar;

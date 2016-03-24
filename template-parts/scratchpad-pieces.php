@@ -5,7 +5,7 @@ $stationary = array(
 	'little-pencil.svg',
 	'pencil.svg',
 	'pen.svg',
-	'grip-pencil.svg'
+	'grip-pencil.svg',
 );
 
 shuffle( $stationary );

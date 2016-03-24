@@ -53,7 +53,7 @@
 
 	<?php
 	/* Post-format specific SVGs */
-	if ( 'audio' == get_post_format() ) : ?>
+	if ( 'audio' === get_post_format() ) : ?>
 		<div class="earbud-container">
 			<?php get_template_part( 'images/inline', 'earbuds.svg' ); ?>
 			<?php get_template_part( 'images/inline', 'earbuds-plug.svg' ); ?>

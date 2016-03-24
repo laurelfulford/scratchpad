@@ -33,7 +33,7 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				if( $currentpost % 3 == 0 && ! is_sticky() ) {
+				if ( ( 0 === $currentpost % 3 ) && ! is_sticky() ) {
 					get_template_part( 'template-parts/scratchpad', 'pieces' );
 				}
 				/*

@@ -19,7 +19,7 @@ function scratchpad_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'scratchpad_infinite_scroll_render',
 		'footer'    => 'page',
-		'footer_widgets' => 'sidebar-2'
+		'footer_widgets' => 'sidebar-2',
 	) );
 
 	// Add theme support for Responsive Videos.
@@ -48,7 +48,7 @@ function scratchpad_infinite_scroll_render() {
 
 	while ( have_posts() ) {
 
-		if( $currentpost % 3 == 0 && ! is_sticky() ) {
+		if ( ( 0 === $currentpost % 3 ) && ! is_sticky() ) {
 			get_template_part( 'template-parts/scratchpad', 'pieces' );
 		}
 		$currentpost++;
